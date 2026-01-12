@@ -99,7 +99,7 @@ body {
     color: var(--vt-text-dark);
     background-color: var(--vt-white);
     min-height: 100vh;
-    padding-top: 120px;
+    padding-top: 110px;
 }
 
 a {
@@ -567,7 +567,7 @@ main .vt-container {
     }
     
     body {
-        padding-top: 180px;
+        padding-top: 140px;
     }
     
     main {
@@ -805,9 +805,9 @@ body {
                         </b:widget-settings>
                         <b:includable id='main' var='top'>
                             <!-- Hero Section - First Post Only -->
-                            <b:if cond='data:posts.size() > 0'>
+                            <b:if cond='data:top.posts.size() > 0'>
                                 <div class='vt-hero-section' style='padding: 50px 0; margin-bottom: 40px;'>
-                                    <b:loop values='data:posts' var='post' index='postIndex'>
+                                    <b:loop values='data:top.posts' var='post' index='postIndex'>
                                         <b:if cond='data:postIndex == 0'>
                                             <div class='vt-hero-box'>
                                                 <b:if cond='data:post.featuredImage'>
@@ -848,7 +848,7 @@ body {
                                     <i class='fas fa-fire'></i> Τελευταίες Αναρτήσεις
                                 </h2>
                                 <div class='vt-grid vt-grid-2'>
-                                    <b:loop values='data:posts' var='post' index='postIndex'>
+                                    <b:loop values='data:top.posts' var='post' index='postIndex'>
                                         <b:if cond='data:postIndex > 0'>
                                             <article class="vt-card">
                                                 <b:if cond="data:post.featuredImage">
@@ -942,32 +942,34 @@ body {
                     </div>
 
                     <!-- Popular Posts Widget -->
-                    <div class='vt-widget'>
-                        <h3 class='vt-widget-title'>
-                            <i class='fas fa-fire'></i> Δημοφιλείς Αναρτήσεις
-                        </h3>
-                        <div style='display: flex; flex-direction: column; gap: 15px;'>
-                            <b:loop values='data:posts' var='post' index='postIndex'>
-                                <b:if cond='data:postIndex &lt; 3'>
-                                    <div style='display: flex; gap: 15px;'>
-                                        <b:if cond='data:post.featuredImage'>
-                                            <img expr:src='data:post.featuredImage' alt='Popular Post' style='width: 80px; height: 60px; object-fit: cover; border-radius: 4px; flex-shrink: 0;'/>
-                                        <b:else/>
-                                            <div style='width: 80px; height: 60px; background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%); border-radius: 4px; flex-shrink: 0;'></div>
-                                        </b:if>
-                                        <div style='flex: 1;'>
-                                            <a expr:href='data:post.url' style='font-size: 14px; font-weight: 500; line-height: 1.4; display: block; margin-bottom: 5px;'>
-                                                <data:post.title/>
-                                            </a>
-                                            <span style='font-size: 12px; color: #9ca3af;'>
-                                                <i class='far fa-calendar'></i> <data:post.dateShort/>
-                                            </span>
+                    <b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts' version='2'>
+                        <b:includable id='main'>
+                            <div class='vt-widget'>
+                                <h3 class='vt-widget-title'>
+                                    <i class='fas fa-fire'></i> Δημοφιλείς Αναρτήσεις
+                                </h3>
+                                <div style='display: flex; flex-direction: column; gap: 15px;'>
+                                    <b:loop values='data:posts' var='post'>
+                                        <div style='display: flex; gap: 15px;'>
+                                            <b:if cond='data:post.thumbnail'>
+                                                <img expr:src='data:post.thumbnail' alt='Popular Post' style='width: 80px; height: 60px; object-fit: cover; border-radius: 4px; flex-shrink: 0;'/>
+                                            <b:else/>
+                                                <div style='width: 80px; height: 60px; background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%); border-radius: 4px; flex-shrink: 0;'></div>
+                                            </b:if>
+                                            <div style='flex: 1;'>
+                                                <a expr:href='data:post.href' style='font-size: 14px; font-weight: 500; line-height: 1.4; display: block; margin-bottom: 5px;'>
+                                                    <data:post.title/>
+                                                </a>
+                                                <span style='font-size: 12px; color: #9ca3af;'>
+                                                    <i class='far fa-calendar'></i> <data:post.shortDate/>
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </b:if>
-                            </b:loop>
-                        </div>
-                    </div>
+                                    </b:loop>
+                                </div>
+                            </div>
+                        </b:includable>
+                    </b:widget>
 
                     <!-- Tags Widget -->
                     <div class='vt-widget'>
