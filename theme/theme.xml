@@ -342,11 +342,6 @@ p { margin-bottom: var(--vt-spacing-md); }
                 <b:section class='main-section col-lg-8' id='main' maxwidgets='1' showaddelement='yes'>
                     <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' version='2' visible='true'>
                         <b:includable id='main' var='top'>
-                            <!-- Featured Post (Hero) -->
-                            <b:if cond='data:view.isHomepage'>
-                                <b:includable id='featuredPost' var='post'/>
-                            </b:if>
-                            
                             <!-- Post Grid -->
                             <div class='blog-posts'>
                                 <b:loop values='data:posts' var='post'>
@@ -360,7 +355,7 @@ p { margin-bottom: var(--vt-spacing-md); }
                         
                         <!-- Post Card Template -->
                         <b:includable id='post' var='post'>
-                            <article class='card post-card'>
+                            <article class='card post-card' style='margin-bottom:30px;'>
                                 <div class='blog-image'>
                                     <a expr:href='data:post.url'>
                                         <b:if cond='data:post.featuredImage'>
@@ -369,16 +364,6 @@ p { margin-bottom: var(--vt-spacing-md); }
                                             <img alt='No Image' src='https://placehold.co/800x570'/>
                                         </b:if>
                                     </a>
-                                    
-                                    <b:if cond='data:post.labels'>
-                                        <div class='blog-categories'>
-                                            <b:loop values='data:post.labels' var='label'>
-                                                <a class='categories-btn' expr:href='data:label.url'>
-                                                    <data:label.name/>
-                                                </a>
-                                            </b:loop>
-                                        </div>
-                                    </b:if>
                                 </div>
                                 
                                 <div class='card-body'>
@@ -400,32 +385,6 @@ p { margin-bottom: var(--vt-spacing-md); }
                                     </div>
                                 </div>
                             </article>
-                        </b:includable>
-                        
-                        <!-- Featured Post Template -->
-                        <b:includable id='featuredPost' var='post'>
-                            <section class='hero-section'>
-                                <div class='blog-box'>
-                                    <div class='blog-image'>
-                                        <a expr:href='data:post.url'>
-                                            <b:if cond='data:post.featuredImage'>
-                                                <img expr:alt='data:post.title' expr:src='data:post.featuredImage'/>
-                                            </b:if>
-                                        </a>
-                                    </div>
-                                    
-                                    <div class='blog-content'>
-                                        <h2>
-                                            <a expr:href='data:post.url'><data:post.title/></a>
-                                        </h2>
-                                        <p><data:post.snippet/></p>
-                                        <div class='post-meta'>
-                                            <span><data:post.date/></span>
-                                            <span>By <data:post.author/></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
                         </b:includable>
                         
                         <!-- Pagination -->
