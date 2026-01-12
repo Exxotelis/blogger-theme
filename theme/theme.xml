@@ -368,31 +368,30 @@ p { margin-bottom: var(--vt-spacing-md); }
                         <!-- Post Card Template -->
                         <b:includable id='post' var='post'>
                             <article class='card post-card' style='margin-bottom:30px;'>
-                                <div class='blog-image'>
-                                    <a expr:href='data:post.url'>
-                                        <b:if cond='data:post.featuredImage'>
-                                            <img expr:alt='data:post.title' expr:src='data:post.featuredImage'/>
+                                <a expr:href='data:post.url' style='display:block;'>
+                                    <div class='blog-image' style='background:#e5e7eb;'>
+                                        <b:if cond='data:post.thumbnail'>
+                                            <img expr:alt='data:post.title' expr:src='data:post.thumbnail' style='width:100%;height:100%;object-fit:cover;'/>
                                         <b:else/>
-                                            <img alt='No Image' src='https://placehold.co/800x570'/>
+                                            <div style='width:100%;height:250px;background:#d1d5db;display:flex;align-items:center;justify-content:center;color:#6b7280;font-size:14px;'>No Image</div>
                                         </b:if>
-                                    </a>
-                                </div>
+                                    </div>
+                                </a>
                                 
                                 <div class='card-body'>
                                     <h2 class='card-title'>
                                         <a expr:href='data:post.url'><data:post.title/></a>
                                     </h2>
                                     
-                                    <p class='post-snippet'>
-                                        <data:post.snippet/>
-                                    </p>
+                                    <b:if cond='data:post.snippet'>
+                                        <p class='post-snippet' style='color:#6b7280;margin-bottom:15px;'>
+                                            <data:post.snippet/>
+                                        </p>
+                                    </b:if>
                                     
-                                    <div class='post-meta'>
-                                        <span class='post-date'>
-                                            <data:post.date/>
-                                        </span>
-                                        <span class='post-author'>
-                                            By <data:post.author/>
+                                    <div class='post-meta' style='font-size:12px;color:#9ca3af;'>
+                                        <span class='post-date' style='display:inline-block;margin-right:10px;'>
+                                            <data:post.date format='MMM dd, yyyy'/>
                                         </span>
                                     </div>
                                 </div>
