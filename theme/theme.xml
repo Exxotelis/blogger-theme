@@ -150,8 +150,8 @@ p {
 
 main .vt-container {
     display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 30px;
+    grid-template-columns: 1fr 350px;
+    gap: 40px;
     align-items: start;
 }
 
