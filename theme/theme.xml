@@ -36,7 +36,7 @@
     ]]></b:skin>
     
     <!-- External CSS -->
-    <link rel='stylesheet' href='https://exxotelis.github.io/blogger-theme/assets/main.css?v=1.0.0'/>
+    <link rel='stylesheet' href='https://exxotelis.github.io/blogger-theme/assets/main.css'/>
     
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap' rel='stylesheet'/>
@@ -240,6 +240,6 @@
     
     
     <!-- JavaScript -->
-    <script defer='defer' src='https://exxotelis.github.io/blogger-theme/assets/main.js?v=1.0.0'></script>
+    <script defer='defer' src='https://exxotelis.github.io/blogger-theme/assets/main.js'></script>
 </body>
 </html>
