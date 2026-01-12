@@ -20,7 +20,7 @@
     
     <title><data:blog.pageTitle/></title>
     
-    <!-- EDIT POINT: Replace YOUR_USERNAME with your GitHub username -->
+
     <!-- External CSS from GitHub Pages CDN -->
     <link href='https://exxotelis.github.io/blogger-theme/assets/main.css?v=1.0.0' rel='stylesheet' type='text/css'/>
     
@@ -288,9 +288,8 @@
         <i class='fas fa-arrow-up'></i>
     </button>
 
-    <!-- EDIT POINT: Replace YOUR_USERNAME with your GitHub username -->
     <!-- External JavaScript from GitHub Pages CDN -->
-    <script defer='' src='https://YOUR_USERNAME.github.io/blogger-theme-vorintwo/public/assets/main.js?v=1.0.0'></script>
+    <script defer='' src='https://exxotelis.github.io/blogger-theme-vorintwo/public/assets/main.js?v=1.0.0'></script>
     
     <!-- Burger menu toggle for preview -->
     <script>
