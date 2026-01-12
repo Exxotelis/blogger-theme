@@ -113,13 +113,27 @@
     </div>
 
     <script>
-        // Auto-generate URLs based on current domain
-        const baseUrl = window.location.origin + window.location.pathname.replace(/\/+$/, '');
+        // GitHub Pages CDN URLs
+        const gitHubUser = 'Exxotelis';
+        const gitHubRepo = 'blogger-theme';
+        const baseUrl = `https://${gitHubUser}.github.io/${gitHubRepo}`;
         const cssUrl = baseUrl + '/assets/main.css?v=1.0.0';
         const jsUrl = baseUrl + '/assets/main.js?v=1.0.0';
 
         document.getElementById('css-url').textContent = cssUrl;
         document.getElementById('js-url').textContent = jsUrl;
+
+        // Copy to clipboard functionality
+        document.querySelectorAll('code').forEach(code => {
+            code.style.cursor = 'pointer';
+            code.title = 'Click to copy';
+            code.addEventListener('click', function() {
+                navigator.clipboard.writeText(this.textContent);
+                const original = this.textContent;
+                this.textContent = '✓ Copied!';
+                setTimeout(() => { this.textContent = original; }, 2000);
+            });
+        });
     </script>
 </body>
 </html>
