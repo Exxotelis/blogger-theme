@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='indie' b:templateVersion='1.3.0' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
+<head>
+    <meta charset='UTF-8'/>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    
+    <b:include name='all-head-content'/>
+    
+    <title><data:blog.pageTitle/></title>
+    
+    <!-- Favicon -->
+    <b:if cond='data:blog.metaDescription'>
+        <meta expr:content='data:blog.metaDescription' name='description'/>
+    </b:if>
+    
+    <!-- Open Graph -->
+    <b:include name='og-meta-tags'/>
+    
+    <b:skin><![CDATA[
+/* ===================================
+   Blogger Theme - Main CSS
+   Created: 2026
+   =================================== */
+
+/* CSS Variables for Easy Customization */
+:root {
+    /* Colors */
+    --base-color: #f43f5e;
+    --dark-gray: #1e1e1e;
+    --medium-gray: #6b7280;
+    --light-gray: #f3f4f6;
+    --very-light-gray: #f9fafb;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Text Colors */
+    --text-dark-gray: #1f2937;
+    --text-medium-gray: #4b5563;
+    --text-light-gray: #9ca3af;
+    
+    /* Typography */
+    --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-alt: "Poppins", sans-serif;
+    
+    /* Font Sizes */
+    --fs-12: 12px;
+    --fs-14: 14px;
+    --fs-15: 15px;
+    --fs-16: 16px;
+    --fs-17: 17px;
+    --fs-18: 18px;
+    --fs-20: 20px;
+    --fs-24: 24px;
+    
+    /* Font Weights */
+    --fw-400: 400;
+    --fw-500: 500;
+    --fw-600: 600;
+    --fw-700: 700;
+    --fw-800: 800;
+    
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+    --spacing-xxl: 50px;
+    
+    /* Border Radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 6px;
+    --border-radius-lg: 8px;
+    --border-radius-circle: 50%;
+    
+    /* Shadows */
+    --shadow-small: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-large: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-extra-large: 0 20px 25px rgba(0, 0, 0, 0.15);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-dark-gray);
+    background-color: var(--white);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+a:hover {
+    color: var(--base-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-alt);
+    font-weight: var(--fw-600);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header Styles */
+.header-with-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--white);
+    box-shadow: var(--shadow-small);
+}
+
+.navbar {
+    padding: var(--spacing-md) 0;
+}
+
+/* Blog Card Styles */
+.card {
+    background: var(--white);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    transition: var(--transition-normal);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-extra-large);
+}
+
+.blog-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    transition: var(--transition-slow);
+}
+
+.card:hover .blog-image img {
+    transform: scale(1.05);
+}
+
+/* Footer Styles */
+footer {
+    background: var(--dark-gray);
+    color: var(--white);
+    padding: var(--spacing-xxl) 0;
+    margin-top: var(--spacing-xxl);
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.fw-600 { font-weight: var(--fw-600); }
+.mb-20px { margin-bottom: 20px; }
+.mt-20px { margin-top: 20px; }
+
+/* Responsive */
+@media (max-width: 991px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+}
+
+@media (max-width: 767px) {
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+}
+    ]]></b:skin>
+    
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap' rel='stylesheet'/>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <b:section class='header-section' id='header-section' maxwidgets='1' showaddelement='no'>
+        <b:widget id='Header1' locked='true' title='Blog Title (Header)' type='Header' version='2' visible='true'>
+            <b:includable id='main'>
+                <header class='header-with-topbar'>
+                    <nav class='navbar'>
+                        <div class='container'>
+                            <div class='navbar-brand'>
+                                <b:if cond='data:blog.logoUrl'>
+                                    <a expr:href='data:blog.homepageUrl'>
+                                        <img expr:alt='data:blog.title' expr:src='data:blog.logoUrl'/>
+                                    </a>
+                                <b:else/>
+                                    <a expr:href='data:blog.homepageUrl'>
+                                        <h1><data:blog.title/></h1>
+                                    </a>
+                                </b:if>
+                            </div>
+                            
+                            <div class='navbar-menu'>
+                                <ul class='navbar-nav'>
+                                    <li class='nav-item'>
+                                        <a class='nav-link' expr:href='data:blog.homepageUrl'>Home</a>
+                                    </li>
+                                    <li class='nav-item'>
+                                        <a class='nav-link' href='/p/about.html'>About</a>
+                                    </li>
+                                    <li class='nav-item'>
+                                        <a class='nav-link' href='/p/contact.html'>Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+            </b:includable>
+        </b:widget>
+    </b:section>
+    
+    <!-- Main Content -->
+    <div class='main-wrapper'>
+        <div class='container'>
+            <div class='row'>
+                <!-- Blog Posts Section -->
+                <b:section class='main-section col-lg-8' id='main' maxwidgets='1' showaddelement='yes'>
+                    <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' version='2' visible='true'>
+                        <b:includable id='main' var='top'>
+                            <!-- Featured Post (Hero) -->
+                            <b:if cond='data:view.isHomepage'>
+                                <b:includable id='featuredPost' var='post'/>
+                            </b:if>
+                            
+                            <!-- Post Grid -->
+                            <div class='blog-posts'>
+                                <b:loop values='data:posts' var='post'>
+                                    <b:include name='post' data='post'/>
+                                </b:loop>
+                            </div>
+                            
+                            <!-- Pagination -->
+                            <b:include name='pagination'/>
+                        </b:includable>
+                        
+                        <!-- Post Card Template -->
+                        <b:includable id='post' var='post'>
+                            <article class='card post-card'>
+                                <div class='blog-image'>
+                                    <a expr:href='data:post.url'>
+                                        <b:if cond='data:post.featuredImage'>
+                                            <img expr:alt='data:post.title' expr:src='data:post.featuredImage'/>
+                                        <b:else/>
+                                            <img alt='No Image' src='https://placehold.co/800x570'/>
+                                        </b:if>
+                                    </a>
+                                    
+                                    <b:if cond='data:post.labels'>
+                                        <div class='blog-categories'>
+                                            <b:loop values='data:post.labels' var='label'>
+                                                <a class='categories-btn' expr:href='data:label.url'>
+                                                    <data:label.name/>
+                                                </a>
+                                            </b:loop>
+                                        </div>
+                                    </b:if>
+                                </div>
+                                
+                                <div class='card-body'>
+                                    <h2 class='card-title'>
+                                        <a expr:href='data:post.url'><data:post.title/></a>
+                                    </h2>
+                                    
+                                    <p class='post-snippet'>
+                                        <data:post.snippet/>
+                                    </p>
+                                    
+                                    <div class='post-meta'>
+                                        <span class='post-date'>
+                                            <data:post.date/>
+                                        </span>
+                                        <span class='post-author'>
+                                            By <data:post.author/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </article>
+                        </b:includable>
+                        
+                        <!-- Featured Post Template -->
+                        <b:includable id='featuredPost' var='post'>
+                            <section class='hero-section'>
+                                <div class='blog-box'>
+                                    <div class='blog-image'>
+                                        <a expr:href='data:post.url'>
+                                            <b:if cond='data:post.featuredImage'>
+                                                <img expr:alt='data:post.title' expr:src='data:post.featuredImage'/>
+                                            </b:if>
+                                        </a>
+                                    </div>
+                                    
+                                    <div class='blog-content'>
+                                        <h2>
+                                            <a expr:href='data:post.url'><data:post.title/></a>
+                                        </h2>
+                                        <p><data:post.snippet/></p>
+                                        <div class='post-meta'>
+                                            <span><data:post.date/></span>
+                                            <span>By <data:post.author/></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </b:includable>
+                        
+                        <!-- Pagination -->
+                        <b:includable id='pagination'>
+                            <nav class='blog-pagination'>
+                                <b:if cond='data:olderPageUrl'>
+                                    <a class='older-link' expr:href='data:olderPageUrl'>Older Posts</a>
+                                </b:if>
+                                <b:if cond='data:newerPageUrl'>
+                                    <a class='newer-link' expr:href='data:newerPageUrl'>Newer Posts</a>
+                                </b:if>
+                            </nav>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+                
+                <!-- Sidebar Section -->
+                <b:section class='sidebar-section col-lg-4' id='sidebar' maxwidgets='10' showaddelement='yes'>
+                    <!-- Search Widget -->
+                    <b:widget id='BlogSearch1' locked='false' title='Search' type='BlogSearch' version='2' visible='true'>
+                        <b:includable id='main'>
+                            <div class='widget search-widget'>
+                                <h3 class='widget-title'><data:title/></h3>
+                                <form expr:action='data:blog.searchUrl' method='get'>
+                                    <input expr:value='data:q' name='q' placeholder='Search...' type='text'/>
+                                    <button type='submit'>Search</button>
+                                </form>
+                            </div>
+                        </b:includable>
+                    </b:widget>
+                    
+                    <!-- Labels Widget -->
+                    <b:widget id='Label1' locked='false' title='Categories' type='Label' version='2' visible='true'>
+                        <b:includable id='main'>
+                            <div class='widget categories-widget'>
+                                <h3 class='widget-title'><data:title/></h3>
+                                <ul>
+                                    <b:loop values='data:labels' var='label'>
+                                        <li>
+                                            <a expr:href='data:label.url'>
+                                                <data:label.name/>
+                                                <span class='count'>(<data:label.count/>)</span>
+                                            </a>
+                                        </li>
+                                    </b:loop>
+                                </ul>
+                            </div>
+                        </b:includable>
+                    </b:widget>
+                    
+                    <!-- Archive Widget -->
+                    <b:widget id='BlogArchive1' locked='false' title='Archive' type='BlogArchive' version='2' visible='true'>
+                        <b:includable id='main'>
+                            <div class='widget archive-widget'>
+                                <h3 class='widget-title'><data:title/></h3>
+                                <ul>
+                                    <b:loop values='data:data' var='interval'>
+                                        <li>
+                                            <a expr:href='data:interval.url'>
+                                                <data:interval.name/>
+                                                <span class='count'>(<data:interval.post-count/>)</span>
+                                            </a>
+                                        </li>
+                                    </b:loop>
+                                </ul>
+                            </div>
+                        </b:includable>
+                    </b:widget>
+                    
+                    <!-- HTML Widget for About -->
+                    <b:widget id='HTML1' locked='false' title='About Me' type='HTML' version='2' visible='true'>
+                        <b:includable id='main'>
+                            <div class='widget about-widget'>
+                                <h3 class='widget-title'><data:title/></h3>
+                                <data:content/>
+                            </div>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer Section -->
+    <b:section class='footer-section' id='footer-section' maxwidgets='1' showaddelement='no'>
+        <b:widget id='HTML2' locked='true' title='Footer' type='HTML' version='2' visible='true'>
+            <b:includable id='main'>
+                <footer class='footer-dark'>
+                    <div class='container'>
+                        <div class='footer-content'>
+                            <div class='footer-bottom'>
+                                <p>&copy; <span id='year'/> <data:blog.title/>. All rights reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </b:includable>
+        </b:widget>
+    </b:section>
+    
+    <!-- JavaScript -->
+    <script>
+    <![CDATA[
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Mobile nav toggle
+    (function() {
+        'use strict';
+        
+        const ready = (callback) => {
+            if (document.readyState !== 'loading') {
+                callback();
+            } else {
+                document.addEventListener('DOMContentLoaded', callback);
+            }
+        };
+        
+        ready(() => {
+            console.log('Blogger Theme loaded successfully!');
+        });
+    })();
+    ]]>
+    </script>
+</body>
+</html>

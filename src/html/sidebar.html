@@ -1,0 +1,79 @@
+<!-- Sidebar Component -->
+<aside class="col-12 col-xl-3 col-lg-4 pe-5 lg-pe-3 md-pe-15px order-2 order-lg-1">
+    <!-- About Widget -->
+    <div class="widget border-bottom border-color-transparent-dark-very-light pb-30px mb-30px">
+        <div class="widget-title alt-font text-dark-gray fs-17 fw-600 mb-20px">About me</div>
+        <div class="text-center">
+            <img src="ABOUT_IMAGE" class="rounded-circle w-130px h-130px mb-20px" alt="About">
+            <div class="text-dark-gray fw-500 lh-26 mb-15px">ABOUT_TEXT</div>
+            <div class="elements-social social-icon-style-02">
+                <ul class="medium-icon dark">
+                    <li><a class="facebook" href="FACEBOOK_URL" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a class="dribbble" href="DRIBBBLE_URL" target="_blank"><i class="fa-brands fa-dribbble"></i></a></li> 
+                    <li><a class="twitter" href="TWITTER_URL" target="_blank"><i class="fa-brands fa-twitter"></i></a></li> 
+                    <li><a class="instagram" href="INSTAGRAM_URL" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Widget -->
+    <div class="widget border-bottom border-color-transparent-dark-very-light pb-30px mb-30px">
+        <div class="widget-title alt-font text-dark-gray fs-17 fw-600 mb-20px">Search</div>
+        <form action="/search" class="search-form position-relative">
+            <input class="form-control border-radius-4px box-shadow-large" type="text" name="q" placeholder="Search...">
+            <button type="submit" class="search-button">
+                <i class="feather icon-feather-search"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- Popular Posts Widget -->
+    <div class="widget border-bottom border-color-transparent-dark-very-light pb-30px mb-30px">
+        <div class="widget-title alt-font text-dark-gray fs-17 fw-600 mb-20px">Popular posts</div>
+        <ul class="latest-post-sidebar">
+            <!-- Popular Post Item -->
+            <li class="mb-20px pb-20px border-bottom border-color-extra-medium-gray">
+                <figure>
+                    <a href="POST_URL"><img src="POST_THUMBNAIL" alt="POST_TITLE"></a>
+                </figure>
+                <div class="media-body">
+                    <a href="POST_URL" class="text-dark-gray d-block lh-22 fw-500 mb-5px">POST_TITLE</a>
+                    <span class="fs-14"><i class="feather icon-feather-calendar me-5px"></i>POST_DATE</span>
+                </div>
+            </li>
+            <!-- End Popular Post Item -->
+        </ul>
+    </div>
+
+    <!-- Categories Widget -->
+    <div class="widget border-bottom border-color-transparent-dark-very-light pb-30px mb-30px">
+        <div class="widget-title alt-font text-dark-gray fs-17 fw-600 mb-20px">Categories</div>
+        <ul>
+            <li class="pb-10px mb-10px border-bottom border-color-transparent-dark-very-light">
+                <a href="CATEGORY_URL" class="text-dark-gray text-dark-gray-hover">CATEGORY_NAME</a>
+                <span class="item-qty">POST_COUNT</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Archive Widget -->
+    <div class="widget border-bottom border-color-transparent-dark-very-light pb-30px mb-30px">
+        <div class="widget-title alt-font text-dark-gray fs-17 fw-600 mb-20px">Archive</div>
+        <ul>
+            <li class="pb-10px mb-10px">
+                <a href="ARCHIVE_URL" class="text-dark-gray text-dark-gray-hover">
+                    <i class="feather icon-feather-arrow-right-circle me-10px"></i>ARCHIVE_DATE
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Tags Widget -->
+    <div class="widget">
+        <div class="widget-title alt-font text-dark-gray fs-17 fw-600 mb-20px">Tags</div>
+        <div class="tag-cloud">
+            <a href="TAG_URL">TAG_NAME</a>
+        </div>
+    </div>
+</aside>

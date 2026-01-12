@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='indie' b:templateVersion='1.0.0' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
+<head>
+    <meta charset="UTF-8"/>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    
+    <b:include name='all-head-content'/>
+    
+    <title><data:blog.pageTitle/></title>
+    
+    <!-- EDIT POINT: Replace YOUR_USERNAME with your GitHub username -->
+    <!-- External CSS from GitHub Pages CDN -->
+    <link href='https://YOUR_USERNAME.github.io/blogger-theme-vorintwo/public/assets/main.css?v=1.0.0' rel='stylesheet' type='text/css'/>
+    
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com' rel='preconnect'/>
+    <link crossorigin='' href='https://fonts.gstatic.com' rel='preconnect'/>
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap' rel='stylesheet'/>
+    
+    <!-- Font Awesome -->
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'/>
+    
+    <!-- Minimal Critical CSS for initial render -->
+    <b:skin><![CDATA[
+    /* Critical CSS - Above the fold styles */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        padding-top: 70px;
+    }
+    
+    .vt-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: #ffffff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        height: 70px;
+    }
+    
+    /* Fallback styles loaded from external CSS */
+    ]]></b:skin>
+    
+    <b:template-skin>
+    <![CDATA[
+    /* Template skin - Advanced customizations */
+    ]]>
+    </b:template-skin>
+</head>
+
+<body>
+    <!-- HEADER SECTION -->
+    <b:section class='vt-header' id='header' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='Header1' locked='true' title='VorinTwo Theme (Header)' type='Header' version='2'>
+            <b:widget-settings>
+                <b:widget-setting name='displayUrl'></b:widget-setting>
+                <b:widget-setting name='displayHeight'>0</b:widget-setting>
+                <b:widget-setting name='sectionWidth'>-1</b:widget-setting>
+                <b:widget-setting name='useImage'>false</b:widget-setting>
+                <b:widget-setting name='shrinkToFit'>true</b:widget-setting>
+                <b:widget-setting name='imagePlacement'>REPLACE</b:widget-setting>
+                <b:widget-setting name='displayWidth'>0</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main'>
+                <!-- Top Bar -->
+                <div class='vt-header-top-bar'>
+                    <div class='vt-container'>
+                        <div style='display: flex; justify-content: space-between; align-items: center;'>
+                            <div style='font-size: 14px;'>
+                                <i class='far fa-calendar'></i> <data:blog.pageTitle/>
+                            </div>
+                            <div style='display: flex; gap: 15px;'>
+                                <!-- EDIT POINT: Add your social media links -->
+                                <a expr:href='&quot;#&quot;' style='color: white; opacity: 0.8;'><i class='fab fa-facebook-f'></i></a>
+                                <a expr:href='&quot;#&quot;' style='color: white; opacity: 0.8;'><i class='fab fa-twitter'></i></a>
+                                <a expr:href='&quot;#&quot;' style='color: white; opacity: 0.8;'><i class='fab fa-instagram'></i></a>
+                                <a expr:href='&quot;#&quot;' style='color: white; opacity: 0.8;'><i class='fab fa-youtube'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Navigation -->
+                <nav class='vt-navbar'>
+                    <div class='vt-container' style='display: flex; justify-content: space-between; align-items: center;'>
+                        <!-- Logo -->
+                        <div class='vt-navbar-brand'>
+                            <b:if cond='data:imagePlacement == &quot;REPLACE&quot;'>
+                                <a expr:href='data:blog.homepageUrl'>
+                                    <h2 style='margin: 0; color: #f43f5e; font-family: &quot;Poppins&quot;, sans-serif;'>
+                                        <i class='fas fa-blog'></i> <data:title/>
+                                    </h2>
+                                </a>
+                            </b:if>
+                        </div>
+
+                        <!-- Burger Menu Button -->
+                        <button class='vt-burger-menu' id='vt-burger-btn'>
+                            <i class='fas fa-bars'></i>
+                        </button>
+
+                        <!-- Navigation Links - EDIT POINT: Customize your menu -->
+                        <ul class='vt-navbar-nav' id='vt-mobile-menu'>
+                            <li><a class='vt-nav-link' expr:href='data:blog.homepageUrl'>Αρχική</a></li>
+                            <li><a class='vt-nav-link' href='#'>Lifestyle</a></li>
+                            <li><a class='vt-nav-link' href='#'>Travel</a></li>
+                            <li><a class='vt-nav-link' href='#'>Food</a></li>
+                            <li><a class='vt-nav-link' href='#'>Tech</a></li>
+                            <li><a class='vt-nav-link' href='#'>Επικοινωνία</a></li>
+                        </ul>
+
+                        <!-- Search Icon -->
+                        <div>
+                            <button style='background: none; border: none; font-size: 20px; cursor: pointer; color: #1e1e1e;'>
+                                <i class='fas fa-search'></i>
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+            </b:includable>
+        </b:widget>
+    </b:section>
+
+    <!-- MAIN CONTENT -->
+    <main style='padding: 50px 0;'>
+        <div class='vt-container'>
+            <div style='display: grid; grid-template-columns: 1fr 350px; gap: 40px;'>
+                
+                <!-- Blog Posts -->
+                <b:section class='vt-main-content' id='main' showaddelement='no'>
+                    <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2'>
+                        <b:widget-settings>
+                            <b:widget-setting name='showDateHeader'>true</b:widget-setting>
+                            <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
+                            <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+                            <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+                            <b:widget-setting name='showAuthor'>true</b:widget-setting>
+                            <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
+                            <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+                            <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+                            <b:widget-setting name='showAuthorProfile'>true</b:widget-setting>
+                            <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+                            <b:widget-setting name='showLabels'>true</b:widget-setting>
+                            <b:widget-setting name='showLocation'>false</b:widget-setting>
+                            <b:widget-setting name='postLabelsLabel'>Labels:</b:widget-setting>
+                            <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+                            <b:widget-setting name='postsPerAd'>3</b:widget-setting>
+                            <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+                            <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+                            <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+                            <b:widget-setting name='showReactions'>false</b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main' var='top'>
+                            <div class='vt-grid vt-grid-2'>
+                                <b:loop values='data:posts' var='post'>
+                                    <article class='vt-card'>
+                                        <b:if cond='data:post.featuredImage'>
+                                            <div class='vt-blog-image'>
+                                                <img expr:alt='data:post.title' expr:src='data:post.featuredImage' height='400' width='600'/>
+                                                <div class='vt-blog-categories'>
+                                                    <b:loop values='data:post.labels' var='label'>
+                                                        <span class='vt-category-badge'>
+                                                            <i class='fas fa-folder'></i> <data:label.name/>
+                                                        </span>
+                                                    </b:loop>
+                                                </div>
+                                            </div>
+                                        </b:if>
+                                        <div class='vt-card-body'>
+                                            <h3>
+                                                <a class='vt-card-title' expr:href='data:post.url'>
+                                                    <data:post.title/>
+                                                </a>
+                                            </h3>
+                                            <p style='color: #6b7280; font-size: 15px; line-height: 1.6; margin-bottom: 15px;'>
+                                                <data:post.snippet/>
+                                            </p>
+                                            <div style='display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #9ca3af;'>
+                                                <span><i class='far fa-calendar'></i> <data:post.dateShort/></span>
+                                                <span><i class='far fa-comment'></i> <data:post.numComments/></span>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </b:loop>
+                            </div>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+
+                <!-- Sidebar -->
+                <aside class='vt-sidebar'>
+                    <b:section class='vt-sidebar-section' id='sidebar' showaddelement='yes'>
+                        <!-- Search Widget -->
+                        <b:widget id='BlogSearch1' locked='false' title='Search' type='BlogSearch' version='2'>
+                            <b:widget-settings>
+                                <b:widget-setting name='label'>Search this blog:</b:widget-setting>
+                            </b:widget-settings>
+                            <b:includable id='main'>
+                                <div class='vt-widget'>
+                                    <h3 class='vt-widget-title'>
+                                        <i class='fas fa-search'></i> Αναζήτηση
+                                    </h3>
+                                    <form class='vt-search-form' expr:action='data:blog.searchUrl'>
+                                        <input class='vt-search-input' name='q' placeholder='Αναζήτηση στο blog...' type='text'/>
+                                        <button class='vt-search-button' type='submit'>
+                                            <i class='fas fa-search'></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </b:includable>
+                        </b:widget>
+
+                        <!-- Labels Widget -->
+                        <b:widget id='Label1' locked='false' title='Categories' type='Label' version='2'>
+                            <b:includable id='main'>
+                                <div class='vt-widget'>
+                                    <h3 class='vt-widget-title'>
+                                        <i class='fas fa-folder'></i> Κατηγορίες
+                                    </h3>
+                                    <ul style='display: flex; flex-direction: column; gap: 10px;'>
+                                        <b:loop values='data:labels' var='label'>
+                                            <li style='display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f9fafb; border-radius: 4px;'>
+                                                <a expr:href='data:label.url' style='font-size: 14px; color: #4b5563;'>
+                                                    <i class='fas fa-tag'></i> <data:label.name/>
+                                                </a>
+                                                <span style='font-size: 12px; color: #9ca3af;'>(<data:label.count/>)</span>
+                                            </li>
+                                        </b:loop>
+                                    </ul>
+                                </div>
+                            </b:includable>
+                        </b:widget>
+                    </b:section>
+                </aside>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class='vt-footer'>
+        <div class='vt-container'>
+            <div style='display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 30px;'>
+                <div>
+                    <h4 style='color: white; margin-bottom: 20px; font-size: 18px;'>
+                        <i class='fas fa-blog'></i> <data:blog.title/>
+                    </h4>
+                    <p style='color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.7;'>
+                        Μοιράζουμε ιστορίες, συμβουλές και έμπνευση για να κάνουμε τη ζωή σας καλύτερη.
+                    </p>
+                </div>
+                <div>
+                    <h4 style='color: white; margin-bottom: 20px; font-size: 18px;'>Γρήγοροι Σύνδεσμοι</h4>
+                    <ul style='list-style: none; font-size: 14px;'>
+                        <li style='margin-bottom: 10px;'>
+                            <a class='vt-footer-link' expr:href='data:blog.homepageUrl'>
+                                <i class='fas fa-chevron-right' style='font-size: 10px; margin-right: 5px;'></i> Αρχική
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class='vt-footer-bottom'>
+                <div style='display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;'>
+                    <p style='color: rgba(255,255,255,0.7); font-size: 14px; margin: 0;'>
+                        © <data:blog.pageTitle/>. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id='vt-back-to-top' title='Επιστροφή στην κορυφή'>
+        <i class='fas fa-arrow-up'></i>
+    </button>
+
+    <!-- EDIT POINT: Replace YOUR_USERNAME with your GitHub username -->
+    <!-- External JavaScript from GitHub Pages CDN -->
+    <script defer='' src='https://YOUR_USERNAME.github.io/blogger-theme-vorintwo/public/assets/main.js?v=1.0.0'></script>
+    
+    <!-- Burger menu toggle for preview -->
+    <script>
+    //<![CDATA[
+    document.addEventListener('DOMContentLoaded', function() {
+        const burgerBtn = document.getElementById('vt-burger-btn');
+        const mobileMenu = document.getElementById('vt-mobile-menu');
+        if (burgerBtn) {
+            burgerBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('vt-menu-active');
+                const icon = burgerBtn.querySelector('i');
+                if (mobileMenu.classList.contains('vt-menu-active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        }
+    });
+    //]]>
+    </script>
+</body>
+</html>

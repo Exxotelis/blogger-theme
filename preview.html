@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Preview - Local Testing</title>
+    
+    <!-- EDIT POINT: Add Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="src/css/main.css">
+</head>
+<body>
+
+
+
+    <!-- ===================================
+         HEADER SECTION
+         =================================== -->
+    <header class="vt-header">
+        <!-- Top Bar -->
+        <div class="vt-header-top-bar">
+            <div class="vt-container">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="font-size: 14px;">
+                        <i class="far fa-calendar"></i> Κυριακή, 12 Ιανουαρίου 2026
+                    </div>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#" style="color: white; opacity: 0.8;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" style="color: white; opacity: 0.8;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; opacity: 0.8;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white; opacity: 0.8;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="vt-navbar">
+            <div class="vt-container" style="display: flex; justify-content: space-between; align-items: center;">
+                <!-- Logo - EDIT POINT: Replace with your logo -->
+                <div class="vt-navbar-brand">
+                    <a href="/">
+                        <h2 style="margin: 0; color: #f43f5e; font-family: 'Poppins', sans-serif;">
+                            <i class="fas fa-blog"></i> MyBlog
+                        </h2>
+                    </a>
+                </div>
+
+                <!-- Burger Menu Button (Mobile Only) -->
+                <button id="vt-burger-btn" class="vt-burger-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Navigation Links - EDIT POINT: Customize menu items -->
+                <ul class="vt-navbar-nav" id="vt-mobile-menu">
+                    <li><a href="#" class="vt-nav-link">Αρχική</a></li>
+                    <li><a href="#" class="vt-nav-link">Lifestyle</a></li>
+                    <li><a href="#" class="vt-nav-link">Travel</a></li>
+                    <li><a href="#" class="vt-nav-link">Food</a></li>
+                    <li><a href="#" class="vt-nav-link">Tech</a></li>
+                    <li><a href="#" class="vt-nav-link">Επικοινωνία</a></li>
+                </ul>
+
+                <!-- Search Icon -->
+                <div>
+                    <button style="background: none; border: none; font-size: 20px; cursor: pointer; color: #1e1e1e;">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===================================
+         HERO SECTION - Featured Post
+         =================================== -->
+    <section class="vt-hero-section" style="padding: 50px 0;">
+        <div class="vt-container">
+            <div class="vt-hero-box">
+                <div class="vt-hero-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=800&fit=crop');">
+                </div>
+                <div class="vt-hero-content">
+                    <div class="vt-category-badge" style="margin-bottom: 20px;">
+                        <i class="fas fa-mountain"></i> TRAVEL
+                    </div>
+                    <h1 style="font-size: 2rem; margin-bottom: 15px;">
+                        <a href="#" style="color: inherit;">Ανακαλύπτοντας τα κρυμμένα μονοπάτια της Ελβετίας</a>
+                    </h1>
+                    <p style="color: #6b7280; margin-bottom: 20px; line-height: 1.7;">
+                        Μια εκπληκτική περιπέτεια στις Άλπεις που θα σας μείνει αξέχαστη. Από τα χιονισμένα βουνά μέχρι τις παραδοσιακές αλπικές πόλεις...
+                    </p>
+                    <div style="display: flex; align-items: center; gap: 20px; font-size: 14px; color: #9ca3af;">
+                        <span><i class="far fa-user"></i> Γιάννης Παπαδόπουλος</span>
+                        <span><i class="far fa-calendar"></i> 10 Ιαν 2026</span>
+                        <span><i class="far fa-comment"></i> 23 σχόλια</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================
+         MAIN CONTENT AREA
+         =================================== -->
+    <main style="padding: 50px 0;">
+        <div class="vt-container">
+            <div style="display: grid; grid-template-columns: 1fr 350px; gap: 40px;">
+                
+                <!-- Blog Posts Grid -->
+                <div>
+                    <h2 style="margin-bottom: 30px; font-size: 1.75rem;">
+                        <i class="fas fa-fire"></i> Τελευταίες Αναρτήσεις
+                    </h2>
+
+                    <div class="vt-grid vt-grid-2" style="margin-bottom: 40px;">
+                        
+                        <!-- Post Card 1 -->
+                        <article class="vt-card">
+                            <div class="vt-blog-image">
+                                <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&h=400&fit=crop" 
+                                     alt="Food Blog Post" 
+                                     width="600" 
+                                     height="400">
+                                <div class="vt-blog-categories">
+                                    <span class="vt-category-badge">
+                                        <i class="fas fa-utensils"></i> FOOD
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="vt-card-body">
+                                <h3>
+                                    <a href="#" class="vt-card-title">
+                                        5 Συνταγές για υγιεινό πρωινό που θα λατρέψετε
+                                    </a>
+                                </h3>
+                                <p style="color: #6b7280; font-size: 15px; line-height: 1.6; margin-bottom: 15px;">
+                                    Ξεκινήστε τη μέρα σας με ενέργεια και υγεία! Ανακαλύψτε εύκολες και γρήγορες συνταγές...
+                                </p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #9ca3af;">
+                                    <span><i class="far fa-calendar"></i> 9 Ιαν 2026</span>
+                                    <span><i class="far fa-comment"></i> 15</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Post Card 2 -->
+                        <article class="vt-card">
+                            <div class="vt-blog-image">
+                                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=400&fit=crop" 
+                                     alt="Tech Blog Post" 
+                                     width="600" 
+                                     height="400">
+                                <div class="vt-blog-categories">
+                                    <span class="vt-category-badge">
+                                        <i class="fas fa-laptop-code"></i> TECH
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="vt-card-body">
+                                <h3>
+                                    <a href="#" class="vt-card-title">
+                                        Οι καλύτερες εφαρμογές για παραγωγικότητα το 2026
+                                    </a>
+                                </h3>
+                                <p style="color: #6b7280; font-size: 15px; line-height: 1.6; margin-bottom: 15px;">
+                                    Αναβαθμίστε τη ροή εργασίας σας με αυτά τα εργαλεία. Από task management μέχρι...
+                                </p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #9ca3af;">
+                                    <span><i class="far fa-calendar"></i> 8 Ιαν 2026</span>
+                                    <span><i class="far fa-comment"></i> 42</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Post Card 3 -->
+                        <article class="vt-card">
+                            <div class="vt-blog-image">
+                                <img src="https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?w=600&h=400&fit=crop" 
+                                     alt="Lifestyle Blog Post" 
+                                     width="600" 
+                                     height="400">
+                                <div class="vt-blog-categories">
+                                    <span class="vt-category-badge">
+                                        <i class="fas fa-heart"></i> LIFESTYLE
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="vt-card-body">
+                                <h3>
+                                    <a href="#" class="vt-card-title">
+                                        Πώς να δημιουργήσετε μια ρουτίνα πρωινού που λειτουργεί
+                                    </a>
+                                </h3>
+                                <p style="color: #6b7280; font-size: 15px; line-height: 1.6; margin-bottom: 15px;">
+                                    Μια καλή πρωινή ρουτίνα μπορεί να αλλάξει τη ζωή σας. Μάθετε πώς να οργανώσετε...
+                                </p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #9ca3af;">
+                                    <span><i class="far fa-calendar"></i> 7 Ιαν 2026</span>
+                                    <span><i class="far fa-comment"></i> 28</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Post Card 4 -->
+                        <article class="vt-card">
+                            <div class="vt-blog-image">
+                                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&h=400&fit=crop" 
+                                     alt="Travel Blog Post" 
+                                     width="600" 
+                                     height="400">
+                                <div class="vt-blog-categories">
+                                    <span class="vt-category-badge">
+                                        <i class="fas fa-plane"></i> TRAVEL
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="vt-card-body">
+                                <h3>
+                                    <a href="#" class="vt-card-title">
+                                        Τα 10 πιο Instagram-worthy μέρη στην Ελλάδα
+                                    </a>
+                                </h3>
+                                <p style="color: #6b7280; font-size: 15px; line-height: 1.6; margin-bottom: 15px;">
+                                    Από τα γαλάζια νερά της Σαντορίνης μέχρι τα μεσαιωνικά κάστρα της Ρόδου...
+                                </p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #9ca3af;">
+                                    <span><i class="far fa-calendar"></i> 6 Ιαν 2026</span>
+                                    <span><i class="far fa-comment"></i> 67</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Post Card 5 -->
+                        <article class="vt-card">
+                            <div class="vt-blog-image">
+                                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&h=400&fit=crop" 
+                                     alt="Travel Blog Post" 
+                                     width="600" 
+                                     height="400">
+                                <div class="vt-blog-categories">
+                                    <span class="vt-category-badge">
+                                        <i class="fas fa-camera"></i> PHOTOGRAPHY
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="vt-card-body">
+                                <h3>
+                                    <a href="#" class="vt-card-title">
+                                        Βασικές συμβουλές φωτογραφίας για αρχάριους
+                                    </a>
+                                </h3>
+                                <p style="color: #6b7280; font-size: 15px; line-height: 1.6; margin-bottom: 15px;">
+                                    Μάθετε τα μυστικά της τέλειας φωτογραφίας με απλά βήματα που θα σας κάνουν...
+                                </p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #9ca3af;">
+                                    <span><i class="far fa-calendar"></i> 5 Ιαν 2026</span>
+                                    <span><i class="far fa-comment"></i> 34</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Post Card 6 -->
+                        <article class="vt-card">
+                            <div class="vt-blog-image">
+                                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop" 
+                                     alt="Tech Blog Post" 
+                                     width="600" 
+                                     height="400">
+                                <div class="vt-blog-categories">
+                                    <span class="vt-category-badge">
+                                        <i class="fas fa-code"></i> CODING
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="vt-card-body">
+                                <h3>
+                                    <a href="#" class="vt-card-title">
+                                        Πώς να ξεκινήσετε με το Web Development
+                                    </a>
+                                </h3>
+                                <p style="color: #6b7280; font-size: 15px; line-height: 1.6; margin-bottom: 15px;">
+                                    Ένας πλήρης οδηγός για να ξεκινήσετε την καριέρα σας στον προγραμματισμό...
+                                </p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #9ca3af;">
+                                    <span><i class="far fa-calendar"></i> 4 Ιαν 2026</span>
+                                    <span><i class="far fa-comment"></i> 56</span>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <!-- Pagination -->
+                    <div style="text-align: center; margin-top: 40px;">
+                        <div style="display: inline-flex; gap: 10px;">
+                            <a href="#" style="padding: 10px 15px; background: #f3f4f6; border-radius: 4px; color: #6b7280;">‹ Προηγούμενο</a>
+                            <a href="#" style="padding: 10px 15px; background: #f43f5e; border-radius: 4px; color: white; font-weight: 600;">1</a>
+                            <a href="#" style="padding: 10px 15px; background: #f3f4f6; border-radius: 4px; color: #6b7280;">2</a>
+                            <a href="#" style="padding: 10px 15px; background: #f3f4f6; border-radius: 4px; color: #6b7280;">3</a>
+                            <a href="#" style="padding: 10px 15px; background: #f3f4f6; border-radius: 4px; color: #6b7280;">Επόμενο ›</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="vt-sidebar" style="padding-left: 0;">
+                    
+                    <!-- Search Widget -->
+                    <div class="vt-widget">
+                        <h3 class="vt-widget-title">
+                            <i class="fas fa-search"></i> Αναζήτηση
+                        </h3>
+                        <form class="vt-search-form">
+                            <input type="text" 
+                                   class="vt-search-input" 
+                                   placeholder="Αναζήτηση στο blog...">
+                            <button type="submit" class="vt-search-button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- About Widget -->
+                    <div class="vt-widget">
+                        <h3 class="vt-widget-title">
+                            <i class="fas fa-user-circle"></i> Σχετικά με εμένα
+                        </h3>
+                        <div style="text-align: center;">
+                            <img src="https://i.pravatar.cc/150?img=12" 
+                                 alt="Profile" 
+                                 style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px;">
+                            <p style="font-size: 14px; color: #6b7280; line-height: 1.6;">
+                                Καλώς ήρθατε στο blog μου! Εδώ μοιράζομαι ιστορίες, συμβουλές και έμπνευση για ταξίδια, φαγητό και lifestyle.
+                            </p>
+                            <a href="#" style="display: inline-block; margin-top: 10px; padding: 8px 20px; background: #f43f5e; color: white; border-radius: 4px; font-size: 14px; font-weight: 500;">
+                                Περισσότερα
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Popular Posts Widget -->
+                    <div class="vt-widget">
+                        <h3 class="vt-widget-title">
+                            <i class="fas fa-fire"></i> Δημοφιλείς Αναρτήσεις
+                        </h3>
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            
+                            <div style="display: flex; gap: 15px;">
+                                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=100&h=80&fit=crop" 
+                                     alt="Popular Post" 
+                                     style="width: 80px; height: 60px; object-fit: cover; border-radius: 4px; flex-shrink: 0;">
+                                <div style="flex: 1;">
+                                    <a href="#" style="font-size: 14px; font-weight: 500; line-height: 1.4; display: block; margin-bottom: 5px;">
+                                        Τα καλύτερα εστιατόρια στην Αθήνα
+                                    </a>
+                                    <span style="font-size: 12px; color: #9ca3af;">
+                                        <i class="far fa-calendar"></i> 3 Ιαν 2026
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; gap: 15px;">
+                                <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=100&h=80&fit=crop" 
+                                     alt="Popular Post" 
+                                     style="width: 80px; height: 60px; object-fit: cover; border-radius: 4px; flex-shrink: 0;">
+                                <div style="flex: 1;">
+                                    <a href="#" style="font-size: 14px; font-weight: 500; line-height: 1.4; display: block; margin-bottom: 5px;">
+                                        Weekend getaway: Ναύπλιο
+                                    </a>
+                                    <span style="font-size: 12px; color: #9ca3af;">
+                                        <i class="far fa-calendar"></i> 2 Ιαν 2026
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; gap: 15px;">
+                                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=100&h=80&fit=crop" 
+                                     alt="Popular Post" 
+                                     style="width: 80px; height: 60px; object-fit: cover; border-radius: 4px; flex-shrink: 0;">
+                                <div style="flex: 1;">
+                                    <a href="#" style="font-size: 14px; font-weight: 500; line-height: 1.4; display: block; margin-bottom: 5px;">
+                                        10 tips για remote work
+                                    </a>
+                                    <span style="font-size: 12px; color: #9ca3af;">
+                                        <i class="far fa-calendar"></i> 1 Ιαν 2026
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="vt-widget">
+                        <h3 class="vt-widget-title">
+                            <i class="fas fa-folder"></i> Κατηγορίες
+                        </h3>
+                        <ul style="display: flex; flex-direction: column; gap: 10px;">
+                            <li style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f9fafb; border-radius: 4px;">
+                                <a href="#" style="font-size: 14px; color: #4b5563;">
+                                    <i class="fas fa-utensils"></i> Food & Recipes
+                                </a>
+                                <span style="font-size: 12px; color: #9ca3af;">(24)</span>
+                            </li>
+                            <li style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f9fafb; border-radius: 4px;">
+                                <a href="#" style="font-size: 14px; color: #4b5563;">
+                                    <i class="fas fa-plane"></i> Travel
+                                </a>
+                                <span style="font-size: 12px; color: #9ca3af;">(18)</span>
+                            </li>
+                            <li style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f9fafb; border-radius: 4px;">
+                                <a href="#" style="font-size: 14px; color: #4b5563;">
+                                    <i class="fas fa-laptop-code"></i> Technology
+                                </a>
+                                <span style="font-size: 12px; color: #9ca3af;">(32)</span>
+                            </li>
+                            <li style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f9fafb; border-radius: 4px;">
+                                <a href="#" style="font-size: 14px; color: #4b5563;">
+                                    <i class="fas fa-heart"></i> Lifestyle
+                                </a>
+                                <span style="font-size: 12px; color: #9ca3af;">(41)</span>
+                            </li>
+                            <li style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f9fafb; border-radius: 4px;">
+                                <a href="#" style="font-size: 14px; color: #4b5563;">
+                                    <i class="fas fa-camera"></i> Photography
+                                </a>
+                                <span style="font-size: 12px; color: #9ca3af;">(15)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tags Widget -->
+                    <div class="vt-widget">
+                        <h3 class="vt-widget-title">
+                            <i class="fas fa-tags"></i> Tags
+                        </h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            <a href="#" style="padding: 6px 12px; background: #f3f4f6; color: #6b7280; border-radius: 4px; font-size: 13px; transition: all 0.3s;">Travel</a>
+                            <a href="#" style="padding: 6px 12px; background: #f3f4f6; color: #6b7280; border-radius: 4px; font-size: 13px; transition: all 0.3s;">Food</a>
+                            <a href="#" style="padding: 6px 12px; background: #f3f4f6; color: #6b7280; border-radius: 4px; font-size: 13px; transition: all 0.3s;">Tech</a>
+                            <a href="#" style="padding: 6px 12px; background: #f3f4f6; color: #6b7280; border-radius: 4px; font-size: 13px; transition: all 0.3s;">Lifestyle</a>
+                            <a href="#" style="padding: 6px 12px; background: #f3f4f6; color: #6b7280; border-radius: 4px; font-size: 13px; transition: all 0.3s;">Photography</a>
+                            <a href="#" style="padding: 6px 12px; background: #f3f4f6; color: #6b7280; border-radius: 4px; font-size: 13px; transition: all 0.3s;">Tips</a>
+                            <a href="#" style="padding: 6px 12px; background: #f3f4f6; color: #6b7280; border-radius: 4px; font-size: 13px; transition: all 0.3s;">Tutorial</a>
+                            <a href="#" style="padding: 6px 12px; background: #f3f4f6; color: #6b7280; border-radius: 4px; font-size: 13px; transition: all 0.3s;">Guide</a>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Widget -->
+                    <div class="vt-widget" style="background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%); padding: 25px; border-radius: 8px; color: white;">
+                        <h3 style="color: white; margin-bottom: 15px; font-size: 18px;">
+                            <i class="fas fa-envelope"></i> Newsletter
+                        </h3>
+                        <p style="font-size: 14px; margin-bottom: 15px; opacity: 0.9;">
+                            Εγγραφείτε για να λαμβάνετε τις τελευταίες ενημερώσεις!
+                        </p>
+                        <form>
+                            <input type="email" 
+                                   placeholder="Email σας..." 
+                                   style="width: 100%; padding: 12px; border: none; border-radius: 4px; margin-bottom: 10px; font-size: 14px;">
+                            <button type="submit" 
+                                    style="width: 100%; padding: 12px; background: white; color: #f43f5e; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; font-size: 14px;">
+                                Εγγραφή
+                            </button>
+                        </form>
+                    </div>
+
+                </aside>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- ===================================
+         FOOTER SECTION
+         =================================== -->
+    <footer class="vt-footer">
+        <div class="vt-container">
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 30px;">
+                
+                <!-- Footer Column 1 - EDIT POINT: About -->
+                <div>
+                    <h4 style="color: white; margin-bottom: 20px; font-size: 18px;">
+                        <i class="fas fa-blog"></i> MyBlog
+                    </h4>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.7; margin-bottom: 20px;">
+                        Μοιράζουμε ιστορίες, συμβουλές και έμπνευση για να κάνουμε τη ζωή σας καλύτερη.
+                    </p>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="#" style="width: 35px; height: 35px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 4px; color: white; transition: all 0.3s;">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" style="width: 35px; height: 35px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 4px; color: white; transition: all 0.3s;">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" style="width: 35px; height: 35px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 4px; color: white; transition: all 0.3s;">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" style="width: 35px; height: 35px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 4px; color: white; transition: all 0.3s;">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Column 2 - EDIT POINT: Quick Links -->
+                <div>
+                    <h4 style="color: white; margin-bottom: 20px; font-size: 18px;">Γρήγοροι Σύνδεσμοι</h4>
+                    <ul style="list-style: none; font-size: 14px;">
+                        <li style="margin-bottom: 10px;">
+                            <a href="#" class="vt-footer-link">
+                                <i class="fas fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Αρχική
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="#" class="vt-footer-link">
+                                <i class="fas fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Σχετικά
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="#" class="vt-footer-link">
+                                <i class="fas fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Κατηγορίες
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="#" class="vt-footer-link">
+                                <i class="fas fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Επικοινωνία
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Footer Column 3 - EDIT POINT: Categories -->
+                <div>
+                    <h4 style="color: white; margin-bottom: 20px; font-size: 18px;">Κατηγορίες</h4>
+                    <ul style="list-style: none; font-size: 14px;">
+                        <li style="margin-bottom: 10px;">
+                            <a href="#" class="vt-footer-link">
+                                <i class="fas fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Travel
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="#" class="vt-footer-link">
+                                <i class="fas fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Food
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="#" class="vt-footer-link">
+                                <i class="fas fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Technology
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="#" class="vt-footer-link">
+                                <i class="fas fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Lifestyle
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Footer Column 4 - EDIT POINT: Contact -->
+                <div>
+                    <h4 style="color: white; margin-bottom: 20px; font-size: 18px;">Επικοινωνία</h4>
+                    <ul style="list-style: none; font-size: 14px; color: rgba(255,255,255,0.7);">
+                        <li style="margin-bottom: 15px;">
+                            <i class="fas fa-map-marker-alt" style="width: 20px;"></i> Αθήνα, Ελλάδα
+                        </li>
+                        <li style="margin-bottom: 15px;">
+                            <i class="fas fa-envelope" style="width: 20px;"></i> info@myblog.gr
+                        </li>
+                        <li style="margin-bottom: 15px;">
+                            <i class="fas fa-phone" style="width: 20px;"></i> +30 210 123 4567
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="vt-footer-bottom">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                    <p style="color: rgba(255,255,255,0.7); font-size: 14px; margin: 0;">
+                        © 2026 MyBlog. All rights reserved.
+                    </p>
+                    <ul class="vt-footer-nav">
+                        <li><a href="#" class="vt-footer-link">Όροι Χρήσης</a></li>
+                        <li><a href="#" class="vt-footer-link">Πολιτική Απορρήτου</a></li>
+                        <li><a href="#" class="vt-footer-link">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="vt-back-to-top" title="Επιστροφή στην κορυφή">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Local JavaScript -->
+    <script src="src/js/main.js"></script>
+    <script src="src/js/preview.js"></script>
+
+    <!-- Preview Info Console Log -->
+    <script>
+        console.log('%c🎨 PREVIEW MODE', 'background: #f43f5e; color: white; padding: 10px 20px; font-size: 16px; font-weight: bold;');
+        console.log('✅ CSS loaded from: src/css/main.css');
+        console.log('✅ JS loaded from: src/js/main.js + src/js/preview.js');
+        console.log('✅ Images from: Unsplash (placeholder)');
+        console.log('⚠️  This is LOCAL preview - Blogger loops not active');
+        console.log('📱 Test responsive: Resize browser or use DevTools');
+    </script>
+
+</body>
+</html>

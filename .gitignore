@@ -1,0 +1,58 @@
+# Blogger Theme - .gitignore
+
+# Backups
+*.backup
+*.bak
+backup-*.xml
+*.old
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor Files
+.vscode/
+.idea/
+*.sublime-*
+*.swp
+*.swo
+*~
+
+# Temporary Files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Logs
+*.log
+logs/
+
+# Build/Compiled Files (if using build tools)
+dist/
+build/
+.cache/
+
+# Node Modules (if using npm)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Testing
+.test/
+coverage/
+
+# Personal Notes
+notes.txt
+TODO.txt
+personal/
+
+# Production Credentials
+.env
+.env.local
+secrets/
+
+# Generated Files
+*.generated.*
+.auto-generated/
