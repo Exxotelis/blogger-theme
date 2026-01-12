@@ -494,7 +494,13 @@ p { margin-bottom: var(--vt-spacing-md); }
         var debug = document.createElement('div');
         debug.id = 'debug-log';
         debug.style.cssText = 'position:fixed;top:60px;right:0;width:350px;height:400px;background:#000;color:#0f0;padding:10px;font-size:12px;font-family:monospace;z-index:9999;overflow-y:auto;border:3px solid yellow;';
-        debug.innerHTML = '<div style="color:yellow;font-weight:bold;margin-bottom:5px;">DEBUG CONSOLE</div>';
+        
+        var header = document.createElement('div');
+        header.style.color = 'yellow';
+        header.style.fontWeight = 'bold';
+        header.style.marginBottom = '5px';
+        header.textContent = 'DEBUG CONSOLE';
+        debug.appendChild(header);
         
         // Wait for body or insert into html element
         var insertDebug = function() {
