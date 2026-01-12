@@ -789,9 +789,13 @@ body {
                                             </a>
                                             <div class='vt-hero-content'>
                                                 <b:if cond='data:post.labels.size() &gt; 0'>
-                                                    <a class='vt-badge' expr:href='data:post.labels[0].url'>
-                                                        <data:post.labels[0].name/>
-                                                    </a>
+                                                    <b:loop values='data:post.labels' var='label' index='labelIdx'>
+                                                        <b:if cond='data:labelIdx == 0'>
+                                                            <a class='vt-badge' expr:href='data:label.url'>
+                                                                <data:label.name/>
+                                                            </a>
+                                                        </b:if>
+                                                    </b:loop>
                                                 </b:if>
                                                 <h1 class='vt-hero-title'>
                                                     <a expr:href='data:post.url'><data:post.title/></a>
@@ -819,9 +823,13 @@ body {
                                         </a>
                                         <div class='vt-card-body'>
                                             <b:if cond='data:post.labels.size() &gt; 0'>
-                                                <a class='vt-card-badge' expr:href='data:post.labels[0].url'>
-                                                    <data:post.labels[0].name/>
-                                                </a>
+                                                <b:loop values='data:post.labels' var='label' index='labelIdx'>
+                                                    <b:if cond='data:labelIdx == 0'>
+                                                        <a class='vt-card-badge' expr:href='data:label.url'>
+                                                            <data:label.name/>
+                                                        </a>
+                                                    </b:if>
+                                                </b:loop>
                                             </b:if>
                                             <h3 class='vt-card-title'>
                                                 <a expr:href='data:post.url'><data:post.title/></a>
