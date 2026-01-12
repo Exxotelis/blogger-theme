@@ -803,9 +803,13 @@ body {
                                             </b:if>
                                             <div class='vt-hero-content'>
                                                 <b:if cond='data:post.labels.size() > 0'>
-                                                    <div class='vt-category-badge' style='margin-bottom: 20px;'>
-                                                        <i class='fas fa-folder'></i> <data:post.labels[0].name/>
-                                                    </div>
+                                                    <b:loop values='data:post.labels' var='label' index='labelIndex'>
+                                                        <b:if cond='data:labelIndex == 0'>
+                                                            <div class='vt-category-badge' style='margin-bottom: 20px;'>
+                                                                <i class='fas fa-folder'></i> <data:label.name/>
+                                                            </div>
+                                                        </b:if>
+                                                    </b:loop>
                                                 </b:if>
                                                 <h1 style='font-size: 2rem; margin-bottom: 15px;'>
                                                     <a expr:href='data:post.url' style='color: inherit;'><data:post.title/></a>
