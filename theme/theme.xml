@@ -14,9 +14,6 @@
         <meta expr:content='data:blog.metaDescription' name='description'/>
     </b:if>
     
-    <!-- Open Graph -->
-    <b:include name='og-meta-tags'/>
-    
     <b:skin><![CDATA[
 /* ===================================
    Blogger Theme - Main CSS
