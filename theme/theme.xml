@@ -897,13 +897,6 @@ body {
                         </b:widget>
                     </b:section>
                 </aside>
-                                        </b:loop>
-                                    </ul>
-                                </div>
-                            </b:includable>
-                        </b:widget>
-                    </b:section>
-                </aside>
 
             </div>
         </div>
