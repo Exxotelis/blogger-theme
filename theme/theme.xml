@@ -291,6 +291,11 @@ p { margin-bottom: var(--vt-spacing-md); }
 </head>
 
 <body>
+    <!-- Static Visibility Test (no JS required) -->
+    <div style='position:fixed;top:0;left:0;width:100%;background:red;color:white;padding:20px;font-size:20px;font-weight:bold;z-index:10000;text-align:center;'>
+        THEME LOADED - If you see this, HTML is working
+    </div>
+    
     <!-- Header Section -->
     <b:section class='header-section' id='header-section' maxwidgets='1' showaddelement='no'>
         <b:widget id='Header1' locked='true' title='Blog Title (Header)' type='Header' version='2' visible='true'>
@@ -483,46 +488,80 @@ p { margin-bottom: var(--vt-spacing-md); }
     
     <!-- JavaScript -->
     <script>
-    // Debug logging to page
-    window.debugLog = function(msg) {
-        var debug = document.getElementById('debug-log');
-        if (!debug) {
-            debug = document.createElement('div');
-            debug.id = 'debug-log';
-            debug.style.cssText = 'position:fixed;top:0;right:0;width:300px;height:500px;background:#000;color:#0f0;padding:10px;font-size:11px;font-family:monospace;z-index:9999;overflow-y:auto;border:2px solid #f43f5e;';
-            document.body.appendChild(debug);
+    // Immediate alert to confirm JS runs
+    (function() {
+        // Create debug console immediately
+        var debug = document.createElement('div');
+        debug.id = 'debug-log';
+        debug.style.cssText = 'position:fixed;top:60px;right:0;width:350px;height:400px;background:#000;color:#0f0;padding:10px;font-size:12px;font-family:monospace;z-index:9999;overflow-y:auto;border:3px solid yellow;';
+        debug.innerHTML = '<div style="color:yellow;font-weight:bold;margin-bottom:5px;">DEBUG CONSOLE</div>';
+        
+        // Wait for body or insert into html element
+        var insertDebug = function() {
+            if (document.body) {
+                document.body.appendChild(debug);
+            } else if (document.documentElement) {
+                document.documentElement.appendChild(debug);
+            }
+        };
+        
+        window.debugLog = function(msg, color) {
+            var line = document.createElement('div');
+            if (color) line.style.color = color;
+            line.textContent = '[' + new Date().toLocaleTimeString() + '] ' + msg;
+            debug.appendChild(line);
+            debug.scrollTop = debug.scrollHeight;
+        };
+        
+        // Try to insert immediately
+        insertDebug();
+        
+        // Also try on DOMContentLoaded
+        if (document.addEventListener) {
+            document.addEventListener('DOMContentLoaded', insertDebug);
         }
-        var line = document.createElement('div');
-        line.textContent = '[' + new Date().toLocaleTimeString() + '] ' + msg;
-        debug.appendChild(line);
-        debug.scrollTop = debug.scrollHeight;
-    };
-    
-    debugLog('Script loaded!');
-    debugLog('Document ready state: ' + document.readyState);
-    debugLog('Body: ' + (document.body ? 'exists' : 'missing'));
-    debugLog('Window size: ' + window.innerWidth + 'x' + window.innerHeight);
-    
-    // Set current year
-    try {
-        var yearEl = document.getElementById('year');
-        debugLog('Year element: ' + (yearEl ? 'found' : 'not found'));
-        if (yearEl) {
-            yearEl.textContent = new Date().getFullYear();
-            debugLog('Year set to ' + new Date().getFullYear());
+        
+        debugLog('=== SCRIPT STARTED ===', 'cyan');
+        debugLog('Time: ' + new Date().toLocaleString());
+        debugLog('URL: ' + window.location.href);
+        debugLog('Ready state: ' + document.readyState);
+        debugLog('Body exists: ' + !!document.body, document.body ? 'lime' : 'red');
+        debugLog('DocumentElement: ' + !!document.documentElement);
+        
+        // Set current year when ready
+        var setYear = function() {
+            try {
+                var yearEl = document.getElementById('year');
+                debugLog('Year element: ' + (yearEl ? 'FOUND' : 'NOT FOUND'), yearEl ? 'lime' : 'orange');
+                if (yearEl) {
+                    yearEl.textContent = new Date().getFullYear();
+                    debugLog('Year set to: ' + new Date().getFullYear(), 'lime');
+                }
+            } catch(e) {
+                debugLog('ERROR setting year: ' + e.message, 'red');
+            }
+            
+            // Count elements
+            var posts = document.querySelectorAll('.card, .post-card, article');
+            var widgets = document.querySelectorAll('.widget');
+            var sections = document.querySelectorAll('b\\:section, [class*="section"]');
+            
+            debugLog('Posts found: ' + posts.length, posts.length > 0 ? 'lime' : 'orange');
+            debugLog('Widgets found: ' + widgets.length, widgets.length > 0 ? 'lime' : 'orange');
+            debugLog('Sections found: ' + sections.length, sections.length > 0 ? 'lime' : 'orange');
+            debugLog('=== SCAN COMPLETE ===', 'cyan');
+        };
+        
+        // Run on load
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            setTimeout(setYear, 100);
+        } else {
+            if (window.addEventListener) {
+                window.addEventListener('load', setYear);
+                document.addEventListener('DOMContentLoaded', setYear);
+            }
         }
-    } catch(e) {
-        debugLog('Error setting year: ' + e.message);
-    }
-    
-    // Check for content
-    var posts = document.querySelectorAll('.card, [data-post]');
-    debugLog('Posts found: ' + posts.length);
-    
-    var widgets = document.querySelectorAll('.widget');
-    debugLog('Widgets found: ' + widgets.length);
-    
-    debugLog('Ready!');
+    })();
     </script>
 </body>
 </html>
