@@ -843,6 +843,22 @@ body {
                             </b:includable>
                         </b:widget>
 
+                        <!-- About Widget -->
+                        <div class='vt-widget'>
+                            <h3 class='vt-widget-title'>
+                                <i class='fas fa-user-circle'></i> Σχετικά με εμένα
+                            </h3>
+                            <div style='text-align: center;'>
+                                <img src='https://i.pravatar.cc/150?img=12' alt='Profile' style='width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px;'/>
+                                <p style='font-size: 14px; color: #6b7280; line-height: 1.6;'>
+                                    Καλώς ήρθατε στο blog μου! Εδώ μοιράζομαι ιστορίες, συμβουλές και έμπνευση για ταξίδια, φαγητό και lifestyle.
+                                </p>
+                                <a href='#' style='display: inline-block; margin-top: 10px; padding: 8px 20px; background: #f43f5e; color: white; border-radius: 4px; font-size: 14px; font-weight: 500;'>
+                                    Περισσότερα
+                                </a>
+                            </div>
+                        </div>
+
                         <!-- Labels Widget -->
                         <b:widget id='Label1' locked='false' title='Categories' type='Label' version='2'>
                             <b:includable id='main'>
@@ -865,40 +881,128 @@ body {
                         </b:widget>
                     </b:section>
                 </aside>
+                                        </b:loop>
+                                    </ul>
+                                </div>
+                            </b:includable>
+                        </b:widget>
+                    </b:section>
+                </aside>
 
             </div>
         </div>
     </main>
 
     <!-- FOOTER -->
-    <footer class='vt-footer'>
-        <div class='vt-container'>
-            <div style='display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 30px;'>
+    <footer class="vt-footer">
+        <div class="vt-container">
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 30px;">
+                <!-- Footer Column 1 -->
                 <div>
-                    <h4 style='color: white; margin-bottom: 20px; font-size: 18px;'>
-                        <i class='fas fa-blog'></i> <data:blog.title/>
+                    <h4 style="color: white; margin-bottom: 20px; font-size: 18px;">
+                        <i class="fas fa-blog"></i> <data:blog.title/>
                     </h4>
-                    <p style='color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.7;'>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.7;">
                         Μοιράζουμε ιστορίες, συμβουλές και έμπνευση για να κάνουμε τη ζωή σας καλύτερη.
                     </p>
+                    <div style="display: flex; gap: 10px; margin-top: 15px;">
+                        <a href="#" style="width: 35px; height: 35px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 4px; color: white; transition: all 0.3s;">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" style="width: 35px; height: 35px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 4px; color: white; transition: all 0.3s;">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" style="width: 35px; height: 35px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 4px; color: white; transition: all 0.3s;">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" style="width: 35px; height: 35px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 4px; color: white; transition: all 0.3s;">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
                 </div>
+
+                <!-- Footer Column 2 - Quick Links -->
                 <div>
-                    <h4 style='color: white; margin-bottom: 20px; font-size: 18px;'>Γρήγοροι Σύνδεσμοι</h4>
-                    <ul style='list-style: none; font-size: 14px;'>
-                        <li style='margin-bottom: 10px;'>
-                            <a class='vt-footer-link' expr:href='data:blog.homepageUrl'>
-                                <i class='fas fa-chevron-right' style='font-size: 10px; margin-right: 5px;'></i> Αρχική
+                    <h4 style="color: white; margin-bottom: 20px; font-size: 18px;">Γρήγοροι Σύνδεσμοι</h4>
+                    <ul style="list-style: none; font-size: 14px;">
+                        <li style="margin-bottom: 10px;">
+                            <a href="#" class="vt-footer-link">
+                                <i class="fas fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Αρχική
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="#" class="vt-footer-link">
+                                <i class="fas fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Σχετικά
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="#" class="vt-footer-link">
+                                <i class="fas fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Κατηγορίες
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="#" class="vt-footer-link">
+                                <i class="fas fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Επικοινωνία
                             </a>
                         </li>
                     </ul>
                 </div>
+
+                <!-- Footer Column 3 - Categories -->
+                <div>
+                    <h4 style="color: white; margin-bottom: 20px; font-size: 18px;">Κατηγορίες</h4>
+                    <ul style="list-style: none; font-size: 14px;">
+                        <li style="margin-bottom: 10px;">
+                            <a href="#" class="vt-footer-link">
+                                <i class="fas fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Travel
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="#" class="vt-footer-link">
+                                <i class="fas fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Food
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="#" class="vt-footer-link">
+                                <i class="fas fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Technology
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a href="#" class="vt-footer-link">
+                                <i class="fas fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Lifestyle
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Footer Column 4 - Contact -->
+                <div>
+                    <h4 style="color: white; margin-bottom: 20px; font-size: 18px;">Επικοινωνία</h4>
+                    <ul style="list-style: none; font-size: 14px; color: rgba(255,255,255,0.7);">
+                        <li style="margin-bottom: 15px;">
+                            <i class="fas fa-map-marker-alt" style="width: 20px;"></i> Αθήνα, Ελλάδα
+                        </li>
+                        <li style="margin-bottom: 15px;">
+                            <i class="fas fa-envelope" style="width: 20px;"></i> info@myblog.gr
+                        </li>
+                        <li style="margin-bottom: 15px;">
+                            <i class="fas fa-phone" style="width: 20px;"></i> +30 210 123 4567
+                        </li>
+                    </ul>
+                </div>
+
             </div>
 
-            <div class='vt-footer-bottom'>
-                <div style='display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;'>
-                    <p style='color: rgba(255,255,255,0.7); font-size: 14px; margin: 0;'>
+            <div class="vt-footer-bottom">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                    <p style="color: rgba(255,255,255,0.7); font-size: 14px; margin: 0;">
                         © <data:blog.pageTitle/>. All rights reserved.
                     </p>
+                    <ul class="vt-footer-nav">
+                        <li><a href="#" class="vt-footer-link">Όροι Χρήσης</a></li>
+                        <li><a href="#" class="vt-footer-link">Πολιτική Απορρήτου</a></li>
+                        <li><a href="#" class="vt-footer-link">Cookies</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
