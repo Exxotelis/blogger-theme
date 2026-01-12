@@ -351,8 +351,8 @@ p { margin-bottom: var(--vt-spacing-md); }
         <div class='container'>
             <div class='row'>
                 <!-- Blog Posts Section -->
-                <b:section class='main-section col-lg-8' id='main' maxwidgets='1' showaddelement='yes'>
-                    <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' version='2' visible='true'>
+                <b:section class='main-section col-lg-8' id='main' showaddelement='no'>
+                    <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
                         <b:includable id='main' var='top'>
                             <!-- Post Grid -->
                             <div class='blog-posts'>
