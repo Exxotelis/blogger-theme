@@ -528,7 +528,6 @@ p { margin-bottom: var(--vt-spacing-md); }
     
     <!-- JavaScript -->
     <script>
-    <![CDATA[
     // Debug logging to page
     window.debugLog = function(msg) {
         var debug = document.getElementById('debug-log');
@@ -569,7 +568,6 @@ p { margin-bottom: var(--vt-spacing-md); }
     debugLog('Widgets found: ' + widgets.length);
     
     debugLog('Ready!');
-    ]]>
     </script>
 </body>
 </html>
