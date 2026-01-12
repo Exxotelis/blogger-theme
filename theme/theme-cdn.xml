@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='indie' b:templateVersion='1.0.0' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
+<html xmlns='http://www.w3.org/1999/xhtml'
+      xmlns:b='http://www.google.com/2005/gml/b'
+      xmlns:data='http://www.google.com/2005/gml/data'
+      xmlns:expr='http://www.google.com/2005/gml/expr'
+      b:css='false'
+      b:defaultwidgetversion='2'
+      b:layoutsVersion='3'
+      b:responsive='true'
+      b:templateUrl='indie'
+      b:templateVersion='1.0.0'
+      expr:dir='data:blog.languageDirection'
+      expr:lang='data:blog.locale'>
 <head>
     <meta charset="UTF-8"/>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
@@ -11,7 +22,7 @@
     
     <!-- EDIT POINT: Replace YOUR_USERNAME with your GitHub username -->
     <!-- External CSS from GitHub Pages CDN -->
-    <link href='https://YOUR_USERNAME.github.io/blogger-theme-vorintwo/public/assets/main.css?v=1.0.0' rel='stylesheet' type='text/css'/>
+    <link href='https://exxotelis.github.io/blogger-theme/assets/main.css?v=1.0.0' rel='stylesheet' type='text/css'/>
     
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com' rel='preconnect'/>
@@ -306,5 +317,8 @@
     });
     //]]>
     </script>
+    
+    <!-- External JavaScript -->
+    <script defer='defer' src='https://exxotelis.github.io/blogger-theme/assets/main.js?v=1.0.0'></script>
 </body>
 </html>
