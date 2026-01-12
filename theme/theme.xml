@@ -741,13 +741,11 @@ body {
                     <div class='vt-container' style='display: flex; justify-content: space-between; align-items: center;'>
                         <!-- Logo -->
                         <div class='vt-navbar-brand'>
-                            <b:if cond='data:imagePlacement == &quot;REPLACE&quot;'>
-                                <a expr:href='data:blog.homepageUrl'>
-                                    <h2 style='margin: 0; color: #f43f5e; font-family: &quot;Poppins&quot;, sans-serif;'>
-                                        <i class='fas fa-blog'></i> <data:title/>
-                                    </h2>
-                                </a>
-                            </b:if>
+                            <a expr:href='data:blog.homepageUrl'>
+                                <h2 style='margin: 0; color: #f43f5e; font-family: &quot;Poppins&quot;, sans-serif;'>
+                                    <i class='fas fa-blog'></i> <data:title/>
+                                </h2>
+                            </a>
                         </div>
 
                         <!-- Burger Menu Button -->
@@ -771,6 +769,78 @@ body {
                         </div>
                     </div>
                 </nav>
+
+                <!-- MAIN CONTENT (POSTS) -->
+                <main class='vt-main'>
+                    <div class='vt-container'>
+                        <b:if cond='data:posts.size != 0'>
+                            <!-- HERO + GRID -->
+                            <b:loop values='data:posts' var='post' index='i'>
+                                <b:if cond='data:i == 0'>
+                                    <!-- HERO POST -->
+                                    <section class='vt-hero-section'>
+                                        <div class='vt-hero-card'>
+                                            <a class='vt-hero-image-wrap' expr:href='data:post.url'>
+                                                <b:if cond='data:post.firstImageUrl'>
+                                                    <img class='vt-hero-image' expr:src='data:post.firstImageUrl'/>
+                                                <b:else/>
+                                                    <div class='vt-hero-image vt-hero-placeholder'></div>
+                                                </b:if>
+                                            </a>
+                                            <div class='vt-hero-content'>
+                                                <b:if cond='data:post.labels'>
+                                                    <a class='vt-badge' expr:href='data:post.labels[0].url'>
+                                                        <data:post.labels[0].name/>
+                                                    </a>
+                                                </b:if>
+                                                <h1 class='vt-hero-title'>
+                                                    <a expr:href='data:post.url'><data:post.title/></a>
+                                                </h1>
+                                                <p class='vt-hero-snippet'><data:post.snippet/></p>
+                                                <div class='vt-post-meta'>
+                                                    <span><i class='far fa-user'></i> <data:post.author.name/></span>
+                                                    <span><i class='far fa-calendar'></i> <data:post.dateHeader/></span>
+                                                    <span><i class='far fa-comment'></i> <data:post.numComments/> σχόλια</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <h2 class='vt-section-title'><i class='fas fa-fire'></i> Τελευταίες Αναρτήσεις</h2>
+                                    <div class='vt-post-grid'>
+                                <b:else/>
+                                    <!-- GRID CARD -->
+                                    <article class='vt-post-card'>
+                                        <a class='vt-card-image-wrap' expr:href='data:post.url'>
+                                            <b:if cond='data:post.firstImageUrl'>
+                                                <img class='vt-card-image' expr:src='data:post.firstImageUrl'/>
+                                            <b:else/>
+                                                <div class='vt-card-image vt-card-placeholder'></div>
+                                            </b:if>
+                                        </a>
+                                        <div class='vt-card-body'>
+                                            <b:if cond='data:post.labels'>
+                                                <a class='vt-card-badge' expr:href='data:post.labels[0].url'>
+                                                    <data:post.labels[0].name/>
+                                                </a>
+                                            </b:if>
+                                            <h3 class='vt-card-title'>
+                                                <a expr:href='data:post.url'><data:post.title/></a>
+                                            </h3>
+                                            <div class='vt-post-meta'>
+                                                <span><i class='far fa-calendar'></i> <data:post.dateHeader/></span>
+                                                <span><i class='far fa-comment'></i> <data:post.numComments/></span>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </b:if>
+                            </b:loop>
+                            <!-- close grid -->
+                            </div>
+                        <b:else/>
+                            <div class='vt-empty-state'>Δεν υπάρχουν αναρτήσεις ακόμη.</div>
+                        </b:if>
+                    </div>
+                </main>
             </b:includable>
         </b:widget>
     </b:section>
