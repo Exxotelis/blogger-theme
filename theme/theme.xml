@@ -680,201 +680,230 @@ body {
 </head>
 
 <body>
-    <!-- Static Visibility Test (no JS required) -->
-    <div style='position:fixed;top:0;left:0;width:100%;background:red;color:white;padding:20px;font-size:20px;font-weight:bold;z-index:10000;text-align:center;'>
-        THEME LOADED - If you see this, HTML is working
-    </div>
-    
-    <!-- Header Section -->
-    <b:section class='header-section' id='header-section' maxwidgets='1' showaddelement='no'>
-        <b:widget id='Header1' locked='true' title='Blog Title (Header)' type='Header' version='2' visible='true'>
+    <!-- HEADER SECTION -->
+    <b:section class='vt-header' id='header' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='Header1' locked='true' title='VorinTwo Theme (Header)' type='Header' version='2'>
+            <b:widget-settings>
+                <b:widget-setting name='displayUrl'></b:widget-setting>
+                <b:widget-setting name='displayHeight'>0</b:widget-setting>
+                <b:widget-setting name='sectionWidth'>-1</b:widget-setting>
+                <b:widget-setting name='useImage'>false</b:widget-setting>
+                <b:widget-setting name='shrinkToFit'>true</b:widget-setting>
+                <b:widget-setting name='imagePlacement'>REPLACE</b:widget-setting>
+                <b:widget-setting name='displayWidth'>0</b:widget-setting>
+            </b:widget-settings>
             <b:includable id='main'>
-                <header class='header-with-topbar'>
-                    <nav class='navbar'>
-                        <div class='container'>
-                            <div class='navbar-brand'>
-                                <b:if cond='data:blog.logoUrl'>
-                                    <a expr:href='data:blog.homepageUrl'>
-                                        <img expr:alt='data:blog.title' expr:src='data:blog.logoUrl'/>
-                                    </a>
-                                <b:else/>
-                                    <a expr:href='data:blog.homepageUrl'>
-                                        <h1><data:blog.title/></h1>
-                                    </a>
-                                </b:if>
+                <!-- Top Bar -->
+                <div class='vt-header-top-bar'>
+                    <div class='vt-container'>
+                        <div style='display: flex; justify-content: space-between; align-items: center;'>
+                            <div style='font-size: 14px;'>
+                                <i class='far fa-calendar'></i> <data:blog.pageTitle/>
                             </div>
-                            
-                            <div class='navbar-menu'>
-                                <ul class='navbar-nav'>
-                                    <li class='nav-item'>
-                                        <a class='nav-link' expr:href='data:blog.homepageUrl'>Home</a>
-                                    </li>
-                                    <li class='nav-item'>
-                                        <a class='nav-link' href='/p/about.html'>About</a>
-                                    </li>
-                                    <li class='nav-item'>
-                                        <a class='nav-link' href='/p/contact.html'>Contact</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                </header>
-            </b:includable>
-        </b:widget>
-    </b:section>
-    
-    <!-- Main Content -->
-    <div class='main-wrapper'>
-        <div class='container'>
-            <div class='row'>
-                <!-- Blog Posts Section -->
-                <b:section class='main-section col-lg-8' id='main' showaddelement='no'>
-                    <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
-                        <b:includable id='main' var='top'>
-                            <!-- Post Grid -->
-                            <div class='blog-posts'>
-                                <b:loop values='data:posts' var='post'>
-                                    <b:include name='post' data='post'/>
-                                </b:loop>
-                            </div>
-                            
-                            <!-- Pagination -->
-                            <b:include name='pagination'/>
-                        </b:includable>
-                        
-                        <!-- Post Card Template -->
-                        <b:includable id='post' var='post'>
-                            <article class='card post-card' style='margin-bottom:30px;'>
-                                <a expr:href='data:post.url' style='display:block;'>
-                                    <div class='blog-image' style='background:#e5e7eb;'>
-                                        <b:if cond='data:post.thumbnail'>
-                                            <img expr:alt='data:post.title' expr:src='data:post.thumbnail' style='width:100%;height:100%;object-fit:cover;'/>
-                                        <b:else/>
-                                            <div style='width:100%;height:250px;background:#d1d5db;display:flex;align-items:center;justify-content:center;color:#6b7280;font-size:14px;'>No Image</div>
-                                        </b:if>
-                                    </div>
-                                </a>
-                                
-                                <div class='card-body'>
-                                    <h2 class='card-title'>
-                                        <a expr:href='data:post.url'><data:post.title/></a>
-                                    </h2>
-                                    
-                                    <b:if cond='data:post.snippet'>
-                                        <p class='post-snippet' style='color:#6b7280;margin-bottom:15px;'>
-                                            <data:post.snippet/>
-                                        </p>
-                                    </b:if>
-                                    
-                                    <div class='post-meta' style='font-size:12px;color:#9ca3af;'>
-                                        <span class='post-date' style='display:inline-block;margin-right:10px;'>
-                                            <data:post.date format='MMM dd, yyyy'/>
-                                        </span>
-                                    </div>
-                                </div>
-                            </article>
-                        </b:includable>
-                        
-                        <!-- Pagination -->
-                        <b:includable id='pagination'>
-                            <nav class='blog-pagination'>
-                                <b:if cond='data:olderPageUrl'>
-                                    <a class='older-link' expr:href='data:olderPageUrl'>Older Posts</a>
-                                </b:if>
-                                <b:if cond='data:newerPageUrl'>
-                                    <a class='newer-link' expr:href='data:newerPageUrl'>Newer Posts</a>
-                                </b:if>
-                            </nav>
-                        </b:includable>
-                    </b:widget>
-                </b:section>
-                
-                <!-- Sidebar Section -->
-                <b:section class='sidebar-section col-lg-4' id='sidebar' maxwidgets='10' showaddelement='yes'>
-                    <!-- Search Widget -->
-                    <b:widget id='BlogSearch1' locked='false' title='Search' type='BlogSearch' version='2' visible='true'>
-                        <b:includable id='main'>
-                            <div class='widget search-widget'>
-                                <h3 class='widget-title'><data:title/></h3>
-                                <form expr:action='data:blog.searchUrl' method='get'>
-                                    <input expr:value='data:q' name='q' placeholder='Search...' type='text'/>
-                                    <button type='submit'>Search</button>
-                                </form>
-                            </div>
-                        </b:includable>
-                    </b:widget>
-                    
-                    <!-- Labels Widget -->
-                    <b:widget id='Label1' locked='false' title='Categories' type='Label' version='2' visible='true'>
-                        <b:includable id='main'>
-                            <div class='widget categories-widget'>
-                                <h3 class='widget-title'><data:title/></h3>
-                                <ul>
-                                    <b:loop values='data:labels' var='label'>
-                                        <li>
-                                            <a expr:href='data:label.url'>
-                                                <data:label.name/>
-                                                <span class='count'>(<data:label.count/>)</span>
-                                            </a>
-                                        </li>
-                                    </b:loop>
-                                </ul>
-                            </div>
-                        </b:includable>
-                    </b:widget>
-                    
-                    <!-- Archive Widget -->
-                    <b:widget id='BlogArchive1' locked='false' title='Archive' type='BlogArchive' version='2' visible='true'>
-                        <b:includable id='main'>
-                            <div class='widget archive-widget'>
-                                <h3 class='widget-title'><data:title/></h3>
-                                <ul>
-                                    <b:loop values='data:data' var='interval'>
-                                        <li>
-                                            <a expr:href='data:interval.url'>
-                                                <data:interval.name/>
-                                                <span class='count'>(<data:interval.post-count/>)</span>
-                                            </a>
-                                        </li>
-                                    </b:loop>
-                                </ul>
-                            </div>
-                        </b:includable>
-                    </b:widget>
-                    
-                    <!-- HTML Widget for About -->
-                    <b:widget id='HTML1' locked='false' title='About Me' type='HTML' version='2' visible='true'>
-                        <b:includable id='main'>
-                            <div class='widget about-widget'>
-                                <h3 class='widget-title'><data:title/></h3>
-                                <data:content/>
-                            </div>
-                        </b:includable>
-                    </b:widget>
-                </b:section>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Footer Section -->
-    <b:section class='footer-section' id='footer-section' maxwidgets='1' showaddelement='no'>
-        <b:widget id='HTML2' locked='true' title='Footer' type='HTML' version='2' visible='true'>
-            <b:includable id='main'>
-                <footer class='footer-dark'>
-                    <div class='container'>
-                        <div class='footer-content'>
-                            <div class='footer-bottom'>
-                                <p>&#169; <span id='year'/> <data:blog.title/>. All rights reserved.</p>
+                            <div style='display: flex; gap: 15px;'>
+                                <!-- EDIT POINT: Add your social media links -->
+                                <a expr:href='&quot;#&quot;' style='color: white; opacity: 0.8;'><i class='fab fa-facebook-f'></i></a>
+                                <a expr:href='&quot;#&quot;' style='color: white; opacity: 0.8;'><i class='fab fa-twitter'></i></a>
+                                <a expr:href='&quot;#&quot;' style='color: white; opacity: 0.8;'><i class='fab fa-instagram'></i></a>
+                                <a expr:href='&quot;#&quot;' style='color: white; opacity: 0.8;'><i class='fab fa-youtube'></i></a>
                             </div>
                         </div>
                     </div>
-                </footer>
+                </div>
+
+                <!-- Main Navigation -->
+                <nav class='vt-navbar'>
+                    <div class='vt-container' style='display: flex; justify-content: space-between; align-items: center;'>
+                        <!-- Logo -->
+                        <div class='vt-navbar-brand'>
+                            <b:if cond='data:imagePlacement == &quot;REPLACE&quot;'>
+                                <a expr:href='data:blog.homepageUrl'>
+                                    <h2 style='margin: 0; color: #f43f5e; font-family: &quot;Poppins&quot;, sans-serif;'>
+                                        <i class='fas fa-blog'></i> <data:title/>
+                                    </h2>
+                                </a>
+                            </b:if>
+                        </div>
+
+                        <!-- Burger Menu Button -->
+                        <button class='vt-burger-menu' id='vt-burger-btn'>
+                            <i class='fas fa-bars'></i>
+                        </button>
+
+                        <!-- Navigation Links - EDIT POINT: Customize your menu -->
+                        <ul class='vt-navbar-nav' id='vt-mobile-menu'>
+                            <li><a class='vt-nav-link' expr:href='data:blog.homepageUrl'>Αρχική</a></li>
+                            <li><a class='vt-nav-link' href='#'>Lifestyle</a></li>
+                            <li><a class='vt-nav-link' href='#'>Travel</a></li>
+                            <li><a class='vt-nav-link' href='#'>Food</a></li>
+                            <li><a class='vt-nav-link' href='#'>Tech</a></li>
+                            <li><a class='vt-nav-link' href='#'>Επικοινωνία</a></li>
+                        </ul>
+
+                        <!-- Search Icon -->
+                        <div>
+                            <button style='background: none; border: none; font-size: 20px; cursor: pointer; color: #1e1e1e;'>
+                                <i class='fas fa-search'></i>
+                            </button>
+                        </div>
+                    </div>
+                </nav>
             </b:includable>
         </b:widget>
     </b:section>
 
-    
+    <!-- MAIN CONTENT -->
+    <main style='padding: 50px 0;'>
+        <div class='vt-container'>
+            <div style='display: grid; grid-template-columns: 1fr 350px; gap: 40px;'>
+                
+                <!-- Blog Posts -->
+                <b:section class='vt-main-content' id='main' showaddelement='no'>
+                    <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2'>
+                        <b:widget-settings>
+                            <b:widget-setting name='showDateHeader'>true</b:widget-setting>
+                            <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
+                            <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+                            <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+                            <b:widget-setting name='showAuthor'>true</b:widget-setting>
+                            <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
+                            <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+                            <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+                            <b:widget-setting name='showAuthorProfile'>true</b:widget-setting>
+                            <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+                            <b:widget-setting name='showLabels'>true</b:widget-setting>
+                            <b:widget-setting name='showLocation'>false</b:widget-setting>
+                            <b:widget-setting name='postLabelsLabel'>Labels:</b:widget-setting>
+                            <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+                            <b:widget-setting name='postsPerAd'>3</b:widget-setting>
+                            <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+                            <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+                            <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+                            <b:widget-setting name='showReactions'>false</b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main' var='top'>
+                            <div class='vt-grid vt-grid-2'>
+                                <b:loop values='data:posts' var='post'>
+                                    <article class='vt-card'>
+                                        <b:if cond='data:post.featuredImage'>
+                                            <div class='vt-blog-image'>
+                                                <img expr:alt='data:post.title' expr:src='data:post.featuredImage' height='400' width='600'/>
+                                                <div class='vt-blog-categories'>
+                                                    <b:loop values='data:post.labels' var='label'>
+                                                        <span class='vt-category-badge'>
+                                                            <i class='fas fa-folder'></i> <data:label.name/>
+                                                        </span>
+                                                    </b:loop>
+                                                </div>
+                                            </div>
+                                        </b:if>
+                                        <div class='vt-card-body'>
+                                            <h3>
+                                                <a class='vt-card-title' expr:href='data:post.url'>
+                                                    <data:post.title/>
+                                                </a>
+                                            </h3>
+                                            <p style='color: #6b7280; font-size: 15px; line-height: 1.6; margin-bottom: 15px;'>
+                                                <data:post.snippet/>
+                                            </p>
+                                            <div style='display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #9ca3af;'>
+                                                <span><i class='far fa-calendar'></i> <data:post.dateShort/></span>
+                                                <span><i class='far fa-comment'></i> <data:post.numComments/></span>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </b:loop>
+                            </div>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+
+                <!-- Sidebar -->
+                <aside class='vt-sidebar'>
+                    <b:section class='vt-sidebar-section' id='sidebar' showaddelement='yes'>
+                        <!-- Search Widget -->
+                        <b:widget id='BlogSearch1' locked='false' title='Search' type='BlogSearch' version='2'>
+                            <b:includable id='main'>
+                                <div class='vt-widget'>
+                                    <h3 class='vt-widget-title'>
+                                        <i class='fas fa-search'></i> Αναζήτηση
+                                    </h3>
+                                    <form class='vt-search-form' expr:action='data:blog.searchUrl'>
+                                        <input class='vt-search-input' name='q' placeholder='Αναζήτηση στο blog...' type='text'/>
+                                        <button class='vt-search-button' type='submit'>
+                                            <i class='fas fa-search'></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </b:includable>
+                        </b:widget>
+
+                        <!-- Labels Widget -->
+                        <b:widget id='Label1' locked='false' title='Categories' type='Label' version='2'>
+                            <b:includable id='main'>
+                                <div class='vt-widget'>
+                                    <h3 class='vt-widget-title'>
+                                        <i class='fas fa-folder'></i> Κατηγορίες
+                                    </h3>
+                                    <ul style='display: flex; flex-direction: column; gap: 10px;'>
+                                        <b:loop values='data:labels' var='label'>
+                                            <li style='display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f9fafb; border-radius: 4px;'>
+                                                <a expr:href='data:label.url' style='font-size: 14px; color: #4b5563;'>
+                                                    <i class='fas fa-tag'></i> <data:label.name/>
+                                                </a>
+                                                <span style='font-size: 12px; color: #9ca3af;'>(<data:label.count/>)</span>
+                                            </li>
+                                        </b:loop>
+                                    </ul>
+                                </div>
+                            </b:includable>
+                        </b:widget>
+                    </b:section>
+                </aside>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class='vt-footer'>
+        <div class='vt-container'>
+            <div style='display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 30px;'>
+                <div>
+                    <h4 style='color: white; margin-bottom: 20px; font-size: 18px;'>
+                        <i class='fas fa-blog'></i> <data:blog.title/>
+                    </h4>
+                    <p style='color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.7;'>
+                        Μοιράζουμε ιστορίες, συμβουλές και έμπνευση για να κάνουμε τη ζωή σας καλύτερη.
+                    </p>
+                </div>
+                <div>
+                    <h4 style='color: white; margin-bottom: 20px; font-size: 18px;'>Γρήγοροι Σύνδεσμοι</h4>
+                    <ul style='list-style: none; font-size: 14px;'>
+                        <li style='margin-bottom: 10px;'>
+                            <a class='vt-footer-link' expr:href='data:blog.homepageUrl'>
+                                <i class='fas fa-chevron-right' style='font-size: 10px; margin-right: 5px;'></i> Αρχική
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class='vt-footer-bottom'>
+                <div style='display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;'>
+                    <p style='color: rgba(255,255,255,0.7); font-size: 14px; margin: 0;'>
+                        © <data:blog.pageTitle/>. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id='vt-back-to-top' title='Επιστροφή στην κορυφή'>
+        <i class='fas fa-arrow-up'></i>
+    </button>
+
     <!-- JavaScript - INLINE VERSION -->
     <script type='text/javascript'><![CDATA[
 (function() {
