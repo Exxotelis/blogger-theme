@@ -810,9 +810,14 @@ body {
                                         </div>
                                     </section>
                                     <h2 class='vt-section-title'><i class='fas fa-fire'></i> Τελευταίες Αναρτήσεις</h2>
-                                    <div class='vt-post-grid'>
-                                <b:else/>
-                                    <!-- GRID CARD -->
+                                </b:if>
+                            </b:loop>
+                            
+                            <!-- Post Grid -->
+                            <div class='vt-post-grid'>
+                                <b:loop values='data:posts' var='post' index='i'>
+                                    <b:if cond='data:i &gt; 0'>
+                                        <!-- GRID CARD -->
                                     <article class='vt-post-card'>
                                         <a class='vt-card-image-wrap' expr:href='data:post.url'>
                                             <b:if cond='data:post.firstImageUrl'>
