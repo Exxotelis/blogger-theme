@@ -148,6 +148,16 @@ p {
     padding: 0 15px;
 }
 
+main .vt-container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 30px;
+}
+
+.vt-main-content {
+    display: block;
+}
+
 .vt-row {
     display: flex;
     flex-wrap: wrap;
@@ -314,7 +324,9 @@ p {
 }
 
 .vt-sidebar {
-    padding-left: var(--vt-spacing-xl);
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .vt-widget {
@@ -561,9 +573,9 @@ p {
         padding: 30px 0 !important;
     }
     
-    main > .vt-container > div {
+    main .vt-container {
         grid-template-columns: 1fr !important;
-        gap: 0 !important;
+        gap: 20px !important;
     }
     
     .vt-hero-content {
@@ -572,7 +584,7 @@ p {
     
     .vt-sidebar {
         padding-left: 0 !important;
-        margin-top: var(--vt-spacing-xl);
+        margin-top: 0;
         width: 100%;
     }
     
