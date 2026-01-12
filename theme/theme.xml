@@ -788,7 +788,7 @@ body {
                                                 </b:if>
                                             </a>
                                             <div class='vt-hero-content'>
-                                                <b:if cond='data:post.labels'>
+                                                <b:if cond='data:post.labels.size() &gt; 0'>
                                                     <a class='vt-badge' expr:href='data:post.labels[0].url'>
                                                         <data:post.labels[0].name/>
                                                     </a>
@@ -818,7 +818,7 @@ body {
                                             </b:if>
                                         </a>
                                         <div class='vt-card-body'>
-                                            <b:if cond='data:post.labels'>
+                                            <b:if cond='data:post.labels.size() &gt; 0'>
                                                 <a class='vt-card-badge' expr:href='data:post.labels[0].url'>
                                                     <data:post.labels[0].name/>
                                                 </a>
