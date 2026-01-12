@@ -941,7 +941,49 @@ body {
                         </form>
                     </div>
 
-                    <!-- Labels Widget -->
+                    <!-- Popular Posts Widget -->
+                    <div class='vt-widget'>
+                        <h3 class='vt-widget-title'>
+                            <i class='fas fa-fire'></i> Δημοφιλείς Αναρτήσεις
+                        </h3>
+                        <div style='display: flex; flex-direction: column; gap: 15px;'>
+                            <b:loop values='data:posts' var='post' index='postIndex'>
+                                <b:if cond='data:postIndex &lt; 3'>
+                                    <div style='display: flex; gap: 15px;'>
+                                        <b:if cond='data:post.featuredImage'>
+                                            <img expr:src='data:post.featuredImage' alt='Popular Post' style='width: 80px; height: 60px; object-fit: cover; border-radius: 4px; flex-shrink: 0;'/>
+                                        <b:else/>
+                                            <div style='width: 80px; height: 60px; background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%); border-radius: 4px; flex-shrink: 0;'></div>
+                                        </b:if>
+                                        <div style='flex: 1;'>
+                                            <a expr:href='data:post.url' style='font-size: 14px; font-weight: 500; line-height: 1.4; display: block; margin-bottom: 5px;'>
+                                                <data:post.title/>
+                                            </a>
+                                            <span style='font-size: 12px; color: #9ca3af;'>
+                                                <i class='far fa-calendar'></i> <data:post.dateShort/>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </b:if>
+                            </b:loop>
+                        </div>
+                    </div>
+
+                    <!-- Tags Widget -->
+                    <div class='vt-widget'>
+                        <h3 class='vt-widget-title'>
+                            <i class='fas fa-tags'></i> Tags
+                        </h3>
+                        <div style='display: flex; flex-wrap: wrap; gap: 8px;'>
+                            <b:loop values='data:labels' var='label'>
+                                <a expr:href='data:label.url' style='padding: 6px 12px; background: #f3f4f6; color: #6b7280; border-radius: 4px; font-size: 13px; transition: all 0.3s;'>
+                                    <data:label.name/>
+                                </a>
+                            </b:loop>
+                        </div>
+                    </div>
+
+                    <!-- Labels Widget (Categories List) -->
                     <b:widget id='Label1' locked='false' title='Categories' type='Label' version='2'>
                         <b:includable id='main'>
                             <div class='vt-widget'>
