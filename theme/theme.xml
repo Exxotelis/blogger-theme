@@ -99,6 +99,7 @@ body {
     color: var(--vt-text-dark);
     background-color: var(--vt-white);
     min-height: 100vh;
+    padding-top: 120px;
 }
 
 a {
@@ -552,6 +553,10 @@ p {
         --vt-spacing-xxl: 30px;
     }
     
+    body {
+        padding-top: 180px;
+    }
+    
     main {
         padding: 30px 0 !important;
     }
@@ -760,67 +765,107 @@ body {
     <!-- MAIN CONTENT -->
     <main style='padding: 50px 0;'>
         <div class='vt-container'>
-            <div style='display: grid; grid-template-columns: 1fr 350px; gap: 40px;'>
-                
-                <!-- Blog Posts -->
-                <b:section class='vt-main-content' id='main' showaddelement='no'>
-                    <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2'>
-                        <b:widget-settings>
-                            <b:widget-setting name='showDateHeader'>true</b:widget-setting>
-                            <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
-                            <b:widget-setting name='showShareButtons'>true</b:widget-setting>
-                            <b:widget-setting name='showCommentLink'>true</b:widget-setting>
-                            <b:widget-setting name='showAuthor'>true</b:widget-setting>
-                            <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
-                            <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
-                            <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
-                            <b:widget-setting name='showAuthorProfile'>true</b:widget-setting>
-                            <b:widget-setting name='style.layout'>1x1</b:widget-setting>
-                            <b:widget-setting name='showLabels'>true</b:widget-setting>
-                            <b:widget-setting name='showLocation'>false</b:widget-setting>
-                            <b:widget-setting name='postLabelsLabel'>Labels:</b:widget-setting>
-                            <b:widget-setting name='showTimestamp'>true</b:widget-setting>
-                            <b:widget-setting name='postsPerAd'>3</b:widget-setting>
-                            <b:widget-setting name='showBacklinks'>false</b:widget-setting>
-                            <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
-                            <b:widget-setting name='showInlineAds'>false</b:widget-setting>
-                            <b:widget-setting name='showReactions'>false</b:widget-setting>
-                        </b:widget-settings>
-                        <b:includable id='main' var='top'>
-                            <div class='vt-grid vt-grid-2'>
-                                <b:loop values='data:posts' var='post'>
-                                    <article class="vt-card">
-                                        <b:if cond="data:post.featuredImage">
-                                            <a expr:href="data:post.url" style="display: block; text-decoration: none;">
-                                                <div class="vt-blog-image">
-                                                    <img expr:alt="data:post.title" expr:src="data:post.featuredImage" height="400" width="600"/>
-                                                    <div class="vt-blog-categories">
-                                                        <b:loop values="data:post.labels" var="label">
-                                                            <span class="vt-category-badge">
-                                                                <i class="fas fa-folder"></i> <data:label.name/>
-                                                            </span>
-                                                        </b:loop>
+            <!-- HERO SECTION - Featured Post -->
+            <b:section class='vt-main-content' id='main' showaddelement='no'>
+                <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2'>
+                    <b:widget-settings>
+                        <b:widget-setting name='showDateHeader'>true</b:widget-setting>
+                        <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
+                        <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+                        <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+                        <b:widget-setting name='showAuthor'>true</b:widget-setting>
+                        <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
+                        <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+                        <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+                        <b:widget-setting name='showAuthorProfile'>true</b:widget-setting>
+                        <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+                        <b:widget-setting name='showLabels'>true</b:widget-setting>
+                        <b:widget-setting name='showLocation'>false</b:widget-setting>
+                        <b:widget-setting name='postLabelsLabel'>Labels:</b:widget-setting>
+                        <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+                        <b:widget-setting name='postsPerAd'>3</b:widget-setting>
+                        <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+                        <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+                        <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+                        <b:widget-setting name='showReactions'>false</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main' var='top'>
+                        <!-- Hero Section - First Post Only -->
+                        <b:if cond='data:posts.size() > 0'>
+                            <div class='vt-hero-section' style='padding: 50px 0; margin-bottom: 40px;'>
+                                <b:loop values='data:posts' var='post' index='postIndex'>
+                                    <b:if cond='data:postIndex == 0'>
+                                        <div class='vt-hero-box'>
+                                            <b:if cond='data:post.featuredImage'>
+                                                <div class='vt-hero-image' expr:style='&quot;background-image: url(&quot;+data:post.featuredImage+&quot;);&quot;'></div>
+                                            <b:else/>
+                                                <div class='vt-hero-image' style='background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);'></div>
+                                            </b:if>
+                                            <div class='vt-hero-content'>
+                                                <b:if cond='data:post.labels.size() > 0'>
+                                                    <div class='vt-category-badge' style='margin-bottom: 20px;'>
+                                                        <i class='fas fa-folder'></i> <data:post.labels[0].name/>
                                                     </div>
+                                                </b:if>
+                                                <h1 style='font-size: 2rem; margin-bottom: 15px;'>
+                                                    <a expr:href='data:post.url' style='color: inherit;'><data:post.title/></a>
+                                                </h1>
+                                                <p style='color: #6b7280; margin-bottom: 20px; line-height: 1.7;'>
+                                                    <data:post.snippet/>
+                                                </p>
+                                                <div style='display: flex; align-items: center; gap: 20px; font-size: 14px; color: #9ca3af;'>
+                                                    <span><i class='far fa-calendar'></i> <data:post.dateShort/></span>
+                                                    <span><i class='far fa-comment'></i> <data:post.numComments/></span>
                                                 </div>
-                                            </a>
-                                        </b:if>
-                                        <div class="vt-card-body">
-                                            <a expr:href="data:post.url" class="vt-card-title" style="display: block; text-decoration: none; color: inherit;">
-                                                <data:post.title/>
-                                            </a>
-                                            <p style="color: #6b7280; font-size: 15px; line-height: 1.6; margin: 0; flex-grow: 1;">
-                                                <data:post.snippet/>
-                                            </p>
-                                            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #9ca3af; margin-top: auto;">
-                                                <span><i class="far fa-calendar"></i> <data:post.dateShort/></span>
-                                                <span><i class="far fa-comment"></i> <data:post.numComments/></span>
                                             </div>
                                         </div>
-                                    </article>
+                                    </b:if>
                                 </b:loop>
                             </div>
-                        </b:includable>
-                    </b:widget>
+                        </b:if>
+
+                        <!-- Blog Posts Grid - All Posts Except First -->
+                        <div style='margin-bottom: 30px;'>
+                            <h2 style='margin-bottom: 30px; font-size: 1.75rem;'>
+                                <i class='fas fa-fire'></i> Τελευταίες Αναρτήσεις
+                            </h2>
+                            <div class='vt-grid vt-grid-2'>
+                                <b:loop values='data:posts' var='post' index='postIndex'>
+                                    <b:if cond='data:postIndex > 0'>
+                                        <article class="vt-card">
+                                            <b:if cond="data:post.featuredImage">
+                                                <a expr:href="data:post.url" style="display: block; text-decoration: none;">
+                                                    <div class="vt-blog-image">
+                                                        <img expr:alt="data:post.title" expr:src="data:post.featuredImage" height="400" width="600"/>
+                                                        <div class="vt-blog-categories">
+                                                            <b:loop values="data:post.labels" var="label">
+                                                                <span class="vt-category-badge">
+                                                                    <i class="fas fa-folder"></i> <data:label.name/>
+                                                                </span>
+                                                            </b:loop>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </b:if>
+                                            <div class="vt-card-body">
+                                                <a expr:href="data:post.url" class="vt-card-title" style="display: block; text-decoration: none; color: inherit;">
+                                                    <data:post.title/>
+                                                </a>
+                                                <p style="color: #6b7280; font-size: 15px; line-height: 1.6; margin: 0; flex-grow: 1;">
+                                                    <data:post.snippet/>
+                                                </p>
+                                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #9ca3af; margin-top: auto;">
+                                                    <span><i class="far fa-calendar"></i> <data:post.dateShort/></span>
+                                                    <span><i class="far fa-comment"></i> <data:post.numComments/></span>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </b:if>
+                                </b:loop>
+                            </div>
+                        </div>
+                    </b:includable>
+                </b:widget>
                 </b:section>
 
                 <!-- Sidebar -->
