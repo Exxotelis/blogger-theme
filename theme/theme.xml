@@ -324,6 +324,131 @@ main .vt-container {
     justify-content: center;
 }
 
+.vt-hero-card {
+    display: flex;
+    background: var(--vt-white);
+    border-radius: var(--vt-radius-md);
+    overflow: hidden;
+    box-shadow: var(--vt-shadow-md);
+}
+
+.vt-hero-image-wrap {
+    flex: 0 0 60%;
+    display: block;
+}
+
+.vt-hero-placeholder {
+    background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+    width: 100%;
+    height: 100%;
+}
+
+.vt-hero-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.vt-hero-snippet {
+    color: #6b7280;
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.vt-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background: var(--vt-base-color);
+    color: var(--vt-white);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.vt-post-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+.vt-post-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.vt-section-title {
+    font-size: 1.75rem;
+    margin-bottom: 30px;
+    color: var(--vt-text-dark);
+}
+
+.vt-post-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.vt-post-card {
+    background: var(--vt-white);
+    border-radius: var(--vt-radius-md);
+    overflow: hidden;
+    box-shadow: var(--vt-shadow-md);
+    transition: var(--vt-transition-normal);
+}
+
+.vt-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--vt-shadow-xl);
+}
+
+.vt-card-image-wrap {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.vt-card-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: var(--vt-transition-slow);
+}
+
+.vt-post-card:hover .vt-card-image {
+    transform: scale(1.05);
+}
+
+.vt-card-placeholder {
+    background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+    width: 100%;
+    height: 250px;
+}
+
+.vt-card-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    background: var(--vt-base-color);
+    color: var(--vt-white);
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.vt-empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 18px;
+    color: #9ca3af;
+}
+
 .vt-sidebar {
     padding-left: 0;
     display: flex;
@@ -541,13 +666,23 @@ main .vt-container {
         flex-direction: column;
     }
     
-    .vt-hero-image,
+    .vt-hero-card {
+        flex-direction: column;
+    }
+    
+    .vt-hero-image-wrap,
     .vt-hero-content {
         flex: 0 0 100%;
     }
     
     .vt-hero-image {
         min-height: 250px;
+        height: 300px;
+    }
+    
+    .vt-post-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
     
     .vt-grid-3,
@@ -593,6 +728,11 @@ main .vt-container {
     .vt-grid-3,
     .vt-grid-4 {
         grid-template-columns: 1fr;
+    }
+    
+    .vt-post-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
     
     .vt-blog-image {
@@ -769,91 +909,6 @@ body {
                         </div>
                     </div>
                 </nav>
-
-                <!-- MAIN CONTENT (POSTS) -->
-                <main class='vt-main'>
-                    <div class='vt-container'>
-                        <b:if cond='data:posts.size != 0'>
-                            <!-- HERO + GRID -->
-                            <b:loop values='data:posts' var='post' index='i'>
-                                <b:if cond='data:i == 0'>
-                                    <!-- HERO POST -->
-                                    <section class='vt-hero-section'>
-                                        <div class='vt-hero-card'>
-                                            <a class='vt-hero-image-wrap' expr:href='data:post.url'>
-                                                <b:if cond='data:post.firstImageUrl'>
-                                                    <img class='vt-hero-image' expr:src='data:post.firstImageUrl'/>
-                                                <b:else/>
-                                                    <div class='vt-hero-image vt-hero-placeholder'></div>
-                                                </b:if>
-                                            </a>
-                                            <div class='vt-hero-content'>
-                                                <b:if cond='data:post.labels.size() &gt; 0'>
-                                                    <b:loop values='data:post.labels' var='label' index='labelIdx'>
-                                                        <b:if cond='data:labelIdx == 0'>
-                                                            <a class='vt-badge' expr:href='data:label.url'>
-                                                                <data:label.name/>
-                                                            </a>
-                                                        </b:if>
-                                                    </b:loop>
-                                                </b:if>
-                                                <h1 class='vt-hero-title'>
-                                                    <a expr:href='data:post.url'><data:post.title/></a>
-                                                </h1>
-                                                <p class='vt-hero-snippet'><data:post.snippet/></p>
-                                                <div class='vt-post-meta'>
-                                                    <span><i class='far fa-user'></i> <data:post.author.name/></span>
-                                                    <span><i class='far fa-calendar'></i> <data:post.dateHeader/></span>
-                                                    <span><i class='far fa-comment'></i> <data:post.numComments/> σχόλια</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                    <h2 class='vt-section-title'><i class='fas fa-fire'></i> Τελευταίες Αναρτήσεις</h2>
-                                </b:if>
-                            </b:loop>
-                            
-                            <!-- Post Grid -->
-                            <div class='vt-post-grid'>
-                                <b:loop values='data:posts' var='post' index='i'>
-                                    <b:if cond='data:i &gt; 0'>
-                                        <!-- GRID CARD -->
-                                    <article class='vt-post-card'>
-                                        <a class='vt-card-image-wrap' expr:href='data:post.url'>
-                                            <b:if cond='data:post.firstImageUrl'>
-                                                <img class='vt-card-image' expr:src='data:post.firstImageUrl'/>
-                                            <b:else/>
-                                                <div class='vt-card-image vt-card-placeholder'></div>
-                                            </b:if>
-                                        </a>
-                                        <div class='vt-card-body'>
-                                            <b:if cond='data:post.labels.size() &gt; 0'>
-                                                <b:loop values='data:post.labels' var='label' index='labelIdx'>
-                                                    <b:if cond='data:labelIdx == 0'>
-                                                        <a class='vt-card-badge' expr:href='data:label.url'>
-                                                            <data:label.name/>
-                                                        </a>
-                                                    </b:if>
-                                                </b:loop>
-                                            </b:if>
-                                            <h3 class='vt-card-title'>
-                                                <a expr:href='data:post.url'><data:post.title/></a>
-                                            </h3>
-                                            <div class='vt-post-meta'>
-                                                <span><i class='far fa-calendar'></i> <data:post.dateHeader/></span>
-                                                <span><i class='far fa-comment'></i> <data:post.numComments/></span>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </b:if>
-                            </b:loop>
-                            <!-- close grid -->
-                            </div>
-                        <b:else/>
-                            <div class='vt-empty-state'>Δεν υπάρχουν αναρτήσεις ακόμη.</div>
-                        </b:if>
-                    </div>
-                </main>
             </b:includable>
         </b:widget>
     </b:section>
@@ -887,86 +942,88 @@ body {
                             <b:widget-setting name='showReactions'>false</b:widget-setting>
                         </b:widget-settings>
                         <b:includable id='main' var='top'>
-                            <!-- Hero Section - First Post Only -->
-                            <b:if cond='data:top.posts.size() > 0'>
-                                <div class='vt-hero-section' style='padding: 50px 0; margin-bottom: 40px;'>
-                                    <b:loop values='data:top.posts' var='post' index='postIndex'>
-                                        <b:if cond='data:postIndex == 0'>
-                                            <div class='vt-hero-box'>
-                                                <b:if cond='data:post.featuredImage'>
-                                                    <div class='vt-hero-image' expr:style='&quot;background-image: url(&quot;+data:post.featuredImage+&quot;);&quot;'></div>
-                                                <b:else/>
-                                                    <div class='vt-hero-image' style='background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);'></div>
-                                                </b:if>
+                            <b:if cond='data:top.posts.size() &gt; 0'>
+                                <!-- Hero Section - First Post Only -->
+                                <b:loop values='data:top.posts' var='post' index='postIndex'>
+                                    <b:if cond='data:postIndex == 0'>
+                                        <section class='vt-hero-section'>
+                                            <div class='vt-hero-card'>
+                                                <a class='vt-hero-image-wrap' expr:href='data:post.url'>
+                                                    <b:if cond='data:post.featuredImage'>
+                                                        <img class='vt-hero-image' expr:alt='data:post.title' expr:src='data:post.featuredImage'/>
+                                                    <b:else/>
+                                                        <div class='vt-hero-image vt-hero-placeholder'></div>
+                                                    </b:if>
+                                                </a>
                                                 <div class='vt-hero-content'>
                                                     <b:if cond='data:post.labels.size() &gt; 0'>
                                                         <b:loop values='data:post.labels' var='label' index='labelIndex'>
                                                             <b:if cond='data:labelIndex == 0'>
-                                                                <div class='vt-category-badge' style='margin-bottom: 20px;'>
-                                                                    <i class='fas fa-folder'></i> <data:label.name/>
-                                                                </div>
+                                                                <a class='vt-badge' expr:href='data:label.url'>
+                                                                    <i class='fas fa-tag'></i> <data:label.name/>
+                                                                </a>
                                                             </b:if>
                                                         </b:loop>
                                                     </b:if>
-                                                    <h1 style='font-size: 2rem; margin-bottom: 15px;'>
+                                                    <h1 class='vt-hero-title'>
                                                         <a expr:href='data:post.url' style='color: inherit;'><data:post.title/></a>
                                                     </h1>
-                                                    <p style='color: #6b7280; margin-bottom: 20px; line-height: 1.7;'>
-                                                        <data:post.snippet/>
-                                                    </p>
-                                                    <div style='display: flex; align-items: center; gap: 20px; font-size: 14px; color: #9ca3af;'>
+                                                    <p class='vt-hero-snippet'><data:post.snippet/></p>
+                                                    <div class='vt-post-meta'>
+                                                        <span><i class='far fa-user'></i> <data:post.author.name/></span>
                                                         <span><i class='far fa-calendar'></i> <data:post.dateShort/></span>
-                                                        <span><i class='far fa-comment'></i> <data:post.numComments/></span>
+                                                        <span><i class='far fa-comment'></i> <data:post.numComments/> σχόλια</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </b:if>
-                                    </b:loop>
-                                </div>
-                            </b:if>
+                                        </section>
+                                    </b:if>
+                                </b:loop>
 
-                            <!-- Blog Posts Grid - All Posts Except First -->
-                            <div style='margin-bottom: 30px;'>
-                                <h2 style='margin-bottom: 30px; font-size: 1.75rem;'>
-                                    <i class='fas fa-fire'></i> Τελευταίες Αναρτήσεις
-                                </h2>
-                                <div class='vt-grid vt-grid-2'>
+                                <!-- Blog Posts Grid - All Posts Except First -->
+                                <h2 class='vt-section-title'><i class='fas fa-fire'></i> Τελευταίες Αναρτήσεις</h2>
+                                <div class='vt-post-grid'>
                                     <b:loop values='data:top.posts' var='post' index='postIndex'>
-                                        <b:if cond='data:postIndex > 0'>
-                                            <article class="vt-card">
-                                                <b:if cond="data:post.featuredImage">
-                                                    <a expr:href="data:post.url" style="display: block; text-decoration: none;">
-                                                        <div class="vt-blog-image">
-                                                            <img expr:alt="data:post.title" expr:src="data:post.featuredImage" height="400" width="600"/>
-                                                            <b:if cond='data:post.labels.size() &gt; 0'>
-                                                                <div class="vt-blog-categories">
-                                                                    <b:loop values='data:post.labels' var='label'>
-                                                                        <span class="vt-category-badge">
-                                                                            <i class="fas fa-folder"></i> <data:label.name/>
-                                                                        </span>
-                                                                    </b:loop>
-                                                                </div>
+                                        <b:if cond='data:postIndex &gt; 0'>
+                                            <article class='vt-post-card'>
+                                                <a class='vt-card-image-wrap' expr:href='data:post.url'>
+                                                    <b:if cond='data:post.featuredImage'>
+                                                        <img class='vt-card-image' expr:alt='data:post.title' expr:src='data:post.featuredImage'/>
+                                                    <b:else/>
+                                                        <div class='vt-card-image vt-card-placeholder'></div>
+                                                    </b:if>
+                                                </a>
+                                                <div class='vt-card-body'>
+                                                    <b:if cond='data:post.labels.size() &gt; 0'>
+                                                        <b:loop values='data:post.labels' var='label' index='labelIdx'>
+                                                            <b:if cond='data:labelIdx == 0'>
+                                                                <a class='vt-card-badge' expr:href='data:label.url'>
+                                                                    <i class='fas fa-tag'></i> <data:label.name/>
+                                                                </a>
                                                             </b:if>
-                                                        </div>
-                                                    </a>
-                                                </b:if>
-                                                <div class="vt-card-body">
-                                                    <a expr:href="data:post.url" class="vt-card-title" style="display: block; text-decoration: none; color: inherit;">
-                                                        <data:post.title/>
-                                                    </a>
-                                                    <p style="color: #6b7280; font-size: 15px; line-height: 1.6; margin: 0; flex-grow: 1;">
+                                                        </b:loop>
+                                                    </b:if>
+                                                    <h3 class='vt-card-title'>
+                                                        <a expr:href='data:post.url'><data:post.title/></a>
+                                                    </h3>
+                                                    <p style='color: #6b7280; font-size: 15px; line-height: 1.6; margin-bottom: 15px;'>
                                                         <data:post.snippet/>
                                                     </p>
-                                                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #9ca3af; margin-top: auto;">
-                                                        <span><i class="far fa-calendar"></i> <data:post.dateShort/></span>
-                                                        <span><i class="far fa-comment"></i> <data:post.numComments/></span>
+                                                    <div class='vt-post-meta'>
+                                                        <span><i class='far fa-calendar'></i> <data:post.dateShort/></span>
+                                                        <span><i class='far fa-comment'></i> <data:post.numComments/></span>
                                                     </div>
                                                 </div>
                                             </article>
                                         </b:if>
                                     </b:loop>
                                 </div>
-                            </div>
+                            <b:else/>
+                                <div class='vt-empty-state'>
+                                    <i class='fas fa-inbox' style='font-size: 48px; margin-bottom: 20px; opacity: 0.5;'></i>
+                                    <p>Δεν υπάρχουν αναρτήσεις ακόμη.</p>
+                                </div>
+                            </b:if>
                         </b:includable>
                     </b:widget>
                 </b:section>
