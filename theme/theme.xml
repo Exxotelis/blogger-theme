@@ -106,9 +106,14 @@ body {
     font-size: 16px;
     line-height: 1.6;
     color: var(--vt-text-dark);
-    background-color: var(--vt-white);
-    padding-top: var(--vt-header-height);
+    background-color: #f9fafb;
+    padding-top: 80px;
     min-height: 100vh;
+}
+
+.main-wrapper {
+    background: var(--vt-white);
+    padding: 40px 0;
 }
 
 a {
@@ -524,25 +529,46 @@ p { margin-bottom: var(--vt-spacing-md); }
     <!-- JavaScript -->
     <script>
     <![CDATA[
-    // Set current year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Debug logging to page
+    window.debugLog = function(msg) {
+        var debug = document.getElementById('debug-log');
+        if (!debug) {
+            debug = document.createElement('div');
+            debug.id = 'debug-log';
+            debug.style.cssText = 'position:fixed;top:0;right:0;width:300px;height:500px;background:#000;color:#0f0;padding:10px;font-size:11px;font-family:monospace;z-index:9999;overflow-y:auto;border:2px solid #f43f5e;';
+            document.body.appendChild(debug);
+        }
+        var line = document.createElement('div');
+        line.textContent = '[' + new Date().toLocaleTimeString() + '] ' + msg;
+        debug.appendChild(line);
+        debug.scrollTop = debug.scrollHeight;
+    };
     
-    // Mobile nav toggle
-    (function() {
-        'use strict';
-        
-        const ready = (callback) => {
-            if (document.readyState !== 'loading') {
-                callback();
-            } else {
-                document.addEventListener('DOMContentLoaded', callback);
-            }
-        };
-        
-        ready(() => {
-            console.log('Blogger Theme loaded successfully!');
-        });
-    })();
+    debugLog('Script loaded!');
+    debugLog('Document ready state: ' + document.readyState);
+    debugLog('Body: ' + (document.body ? 'exists' : 'missing'));
+    debugLog('Window size: ' + window.innerWidth + 'x' + window.innerHeight);
+    
+    // Set current year
+    try {
+        var yearEl = document.getElementById('year');
+        debugLog('Year element: ' + (yearEl ? 'found' : 'not found'));
+        if (yearEl) {
+            yearEl.textContent = new Date().getFullYear();
+            debugLog('Year set to ' + new Date().getFullYear());
+        }
+    } catch(e) {
+        debugLog('Error setting year: ' + e.message);
+    }
+    
+    // Check for content
+    var posts = document.querySelectorAll('.card, [data-post]');
+    debugLog('Posts found: ' + posts.length);
+    
+    var widgets = document.querySelectorAll('.widget');
+    debugLog('Widgets found: ' + widgets.length);
+    
+    debugLog('Ready!');
     ]]>
     </script>
 </body>
